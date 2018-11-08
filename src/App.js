@@ -30,7 +30,7 @@ class App extends Component {
 
         <div className="App-links">
           <Link to="/login"><p>Log in</p></Link>
-          <Link to="/createAccount"><p>Create Account</p></Link>
+          <Link to="/signup"><p>Create Account</p></Link>
         </div>
 
       </div>
