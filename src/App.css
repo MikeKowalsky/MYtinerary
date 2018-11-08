@@ -6,16 +6,16 @@
 
 .App-logo {
   width: calc(100vw - 20px);
-  margin: 75px 10px 10px 10px;
+  margin: 50px 10px 10px 10px;
 }
 
 .App-intro{
-  margin: 75px 10px 10px 10px;
-  font-size: 20px;
+  margin: 60px 10px 10px 10px;
+  font-size: 18px;
 }
 
 .App-start-browsing{
-  margin-top: 75px;
+  margin-top: 50px;
   font-size: 30px;
   font-weight: bold;
 }
@@ -25,8 +25,8 @@
 }
 
 .App-call-to-action{
-  font-size: 20px;
-  margin: 30px 10px;
+  font-size: 15px;
+  margin: 60px 10px 10px 10px;
 }
 
 .App-links{
@@ -36,4 +36,10 @@
 
 .App-links>a{
   margin: 10px 20px;
+}
+
+.App-links>a>p{
+  margin: 0;
+  font-size: 18px;
+  font-weight: bold;
 }

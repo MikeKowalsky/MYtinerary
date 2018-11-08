@@ -1,5 +1,5 @@
 
-export function CreateAccount(){
+export const CreateAccount = () => {
     return (
         <div className="CreateAccount">
             <p className="CreateAccount-intro">

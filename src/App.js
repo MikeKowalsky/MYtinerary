@@ -20,8 +20,10 @@ class App extends Component {
           Want to build your own MYtinerary?
         </p>
         <div className="App-links">
-          <a href="#">Log in</a>
-          <a href="#">Create Account</a>
+          {/* eslint-disable-next-line */}
+          <a href="#"><p>Log in</p></a>
+          {/* eslint-disable-next-line */}
+          <a href="#"><p>Create Account</p></a>
         </div>
 
         {/* <header className="App-header">

@@ -1,5 +1,5 @@
 
-export function Login(){
+export const Login = () => {
     return (
         <div className="Login">
             <p className="Login-intro">
