@@ -4,40 +4,30 @@
   width: 100vw;
 }
 
-.App-top-menu{
-  display: flex;
-  justify-content: space-between;
-}
-
-.App-top-menu>i{
-  margin: 20px;
-  font-size: 48px;
-}
-
 .App-logo {
   width: calc(100vw - 20px);
   margin: 10px;
 }
 
-.App-intro{
+.App-intro {
   margin: 15px 10px 10px 10px;
   font-size: 14px;
 }
 
-.App-arrow{
+.App-arrow {
   width: 25vw;
 }
 
-.App-call-to-action{
+.App-call-to-action {
   display: flex;
   width: 95%;
   margin: 10px 10px 0 10px;
 }
 
-.App-call-to-action>p{
+.App-call-to-action > p {
   font-size: 20px;
 }
 
-.App-slider{
+.App-slider {
   height: 40%;
 }
