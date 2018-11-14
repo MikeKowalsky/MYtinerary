@@ -16,7 +16,7 @@ while (indexies.length < 4) {
 }
 
 const slider = indexies.map((cityIndex, index) => (
-  <CityCard cityIndex={cityIndex} key={index} />
+  <CityCard index={cityIndex} key={index} />
 ));
 
 export const AppSlider = () => {
