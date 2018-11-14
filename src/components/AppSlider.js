@@ -3,15 +3,22 @@ import { CityCard } from "./CityCard";
 
 const divStyle = {
   display: "flex",
-  flexWrap: "wrap"
+  flexWrap: "wrap",
+  justifyContent: "center"
 };
 
-const data = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j"];
-const slider = data.map(letter => {
-  return <CityCard letter={letter} />;
-});
+const indexies = [];
+while (indexies.length < 4) {
+  const randomNumber = parseInt(Math.random() * 10);
+  if (!indexies.includes(randomNumber)) {
+    indexies.push(randomNumber);
+  }
+}
+
+const slider = indexies.map((cityIndex, index) => (
+  <CityCard cityIndex={cityIndex} key={index} />
+));
 
 export const AppSlider = () => {
   return <div style={divStyle}>{slider}</div>;
-  // return <CityCard letter={"a"} />;
 };
