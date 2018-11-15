@@ -8,7 +8,7 @@ const pStyle = {
     textAlign: 'center'
 }
 
-export const CreateAccount = () => {
+export const SignUp = () => {
     return (
         <div className="CreateAccount">
             <p style={pStyle}>

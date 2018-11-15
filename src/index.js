@@ -5,7 +5,7 @@ import App from './App';
 
 import { Cities } from './components/Cities'
 import { Login } from './components/Login'
-import { CreateAccount } from './components/CreateAccount'
+import { SignUp } from './components/SignUp'
 
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import * as serviceWorker from './serviceWorker';
@@ -18,7 +18,7 @@ const routing = (
             <Route exact path="/" component={App} />
             <Route path="/cities" component={Cities} />
             <Route path="/login" component={Login} />
-            <Route path="/createAccount" component={CreateAccount} />
+            <Route path="/signup" component={SignUp} />
         </div>
     </Router>
 )
