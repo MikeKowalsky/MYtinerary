@@ -1,4 +1,5 @@
-import React from "react";
+import React, { Component } from "react";
+import Menu from "./Menu";
 
 const divStyle = {
   margin: "20px",
@@ -10,15 +11,42 @@ const iStyle = {
   fontSize: "48px"
 };
 
-export const Header = () => {
-  return (
-    <div style={divStyle}>
-      <i style={iStyle} className="material-icons md-48">
-        account_circle
-      </i>
-      <i style={iStyle} className="material-icons md-48">
-        menu
-      </i>
-    </div>
-  );
-};
+class Header extends Component {
+  constructor() {
+    super();
+    this.state = { isOpen: false };
+  }
+
+  toggleModal = () => {
+    if (!this.state.isOpen) {
+      console.log("activate");
+      document.addEventListener("click", this.toggleModal, false);
+    } else {
+      console.log("deactivate");
+      document.removeEventListener("click", this.toggleModal, false);
+    }
+    this.setState({
+      isOpen: !this.state.isOpen
+    });
+  };
+
+  render() {
+    return (
+      <div style={divStyle}>
+        <i style={iStyle} className="material-icons">
+          account_circle
+        </i>
+        <i style={iStyle} className="material-icons" onClick={this.toggleModal}>
+          menu
+        </i>
+
+        <Menu show={this.state.isOpen}>
+          {/* <Menu show={this.state.isOpen} onClose={this.toggleModal}> */}
+          {/* Here's some content for the modal */}
+        </Menu>
+      </div>
+    );
+  }
+}
+
+export default Header;

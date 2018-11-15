@@ -7,7 +7,7 @@ const divStyle = {
   justifyContent: "center"
 };
 
-class AppSlider extends Component {
+class AppSliderDynamic extends Component {
   constructor() {
     super();
     this.state = {
@@ -48,4 +48,4 @@ class AppSlider extends Component {
   }
 }
 
-export default AppSlider;
+export default AppSliderDynamic;

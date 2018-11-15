@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import logo from "./assets/MYtineraryLogo.png";
 import arrow from "./assets/circled-right-2.png";
-import { Header } from "./components/Header";
+import Header from "./components/Header";
 
 import { Link } from "react-router-dom";
 import "./App.css";
