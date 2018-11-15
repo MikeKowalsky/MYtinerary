@@ -54,7 +54,7 @@ const cityNames = [
 ];
 
 export const CityCard = props => {
-  console.log(props.index);
+  // console.log(props.index);
   return (
     <div style={rectangle}>
       <img style={styleImg} src={citiesMin[props.index]} alt="" />
