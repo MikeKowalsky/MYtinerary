@@ -11,8 +11,7 @@ class AppSlider extends Component {
   constructor() {
     super();
     this.state = {
-      indexies: [],
-      cityCardSet: null
+      cityCardSet: this.generateCityCardSet()
     };
   }
 
@@ -24,37 +23,23 @@ class AppSlider extends Component {
         newIndexies.push(randomNumber);
       }
     }
-    // console.log(newIndexies);
-    this.setState({
-      indexies: newIndexies
-    });
-    console.log(this.state.indexies);
+    return newIndexies;
   };
 
-  generateCityCardSet = initialArray => {
-    this.generateNumbers();
-
-    const newSet = this.state.indexies.map((cityIndex, index) => (
+  generateCityCardSet = () => {
+    const newIndexies = this.generateNumbers();
+    // console.log(newIndexies);
+    const newSet = newIndexies.map((cityIndex, index) => (
       <CityCard index={cityIndex} key={index} />
     ));
-
-    this.setState({
-      cityCardSet: newSet
-    });
+    return newSet;
   };
 
-  // componentWillMount() {
-  //   console.log("will mount");
-  //   this.generateCityCardSet();
-  // }
-
   componentDidMount() {
-    // this.generateCityCardSet();
     setInterval(() => {
-      this.generateCityCardSet();
-      // this.setState({
-      //   // curTime: new Date().toLocaleString()
-      // });
+      this.setState({
+        cityCardSet: this.generateCityCardSet()
+      });
     }, 5000);
   }
 
