@@ -1,0 +1,33 @@
+.App {
+  text-align: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+.App-logo {
+  width: calc(100vw - 20px);
+  margin: 10px;
+}
+
+.App-intro {
+  margin: 15px 10px 10px 10px;
+  font-size: 14px;
+}
+
+.App-arrow {
+  width: 25vw;
+}
+
+.App-call-to-action {
+  display: flex;
+  width: 95%;
+  margin: 10px 10px 0 10px;
+}
+
+.App-call-to-action > p {
+  font-size: 20px;
+}
+
+.App-slider {
+  height: 40%;
+}

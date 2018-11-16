@@ -19,10 +19,8 @@ class Header extends Component {
 
   toggleModal = () => {
     if (!this.state.isOpen) {
-      console.log("activate");
       document.addEventListener("click", this.toggleModal, false);
     } else {
-      console.log("deactivate");
       document.removeEventListener("click", this.toggleModal, false);
     }
     this.setState({
