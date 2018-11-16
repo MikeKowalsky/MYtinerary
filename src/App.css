@@ -6,28 +6,26 @@
 
 .App-logo {
   width: calc(100vw - 20px);
-  margin: 10px;
+  margin: 50px 10px 10px 10px;
 }
 
 .App-intro {
-  margin: 15px 10px 10px 10px;
-  font-size: 14px;
+  margin: 60px 10px 10px 10px;
+  font-size: 18px;
+}
+
+.App-start-browsing {
+  margin-top: 50px;
+  font-size: 30px;
+  font-weight: bold;
 }
 
 .App-arrow {
-  width: 25vw;
+  margin-top: 50px;
+  width: 35vw;
 }
 
 .App-call-to-action {
-  display: flex;
-  width: 95%;
-  margin: 10px 10px 0 10px;
-}
-
-.App-call-to-action > p {
-  font-size: 20px;
-}
-
-.App-slider {
-  height: 40%;
+  font-size: 15px;
+  margin: 60px 10px 10px 10px;
 }
