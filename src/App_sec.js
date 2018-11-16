@@ -5,6 +5,8 @@ import Header from "./components/Header";
 
 import { Link } from "react-router-dom";
 import "./App.css";
+// import { AppSlider } from "./components/AppSlider";
+import AppSliderDynamic from "./components/AppSliderDynamic";
 
 class App extends Component {
   render() {
@@ -20,8 +22,12 @@ class App extends Component {
           <img src={arrow} className="App-arrow" alt="arrow" />
         </Link>
         <div className="App-call-to-action">
-          <p>Want to build your own MYtinerary?</p>
-          <p>Join us!</p>
+          <p>Popular MYtineraries</p>
+        </div>
+
+        <div className="App-slider">
+          {/* <AppSlider /> */}
+          <AppSliderDynamic />
         </div>
       </div>
     );
