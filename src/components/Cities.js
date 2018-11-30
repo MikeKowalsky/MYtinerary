@@ -23,15 +23,22 @@ class Cities extends Component {
   }
 
   render() {
+    // const listItems = this.state.cities.map(city => (
+    //   <div>
+    //     <p key={city._id}>{city.name}</p>
+    //   </div>
+    // ));
+
     const listItems = this.state.cities.map(city => (
-      <li key={city._id}>{city.name}</li>
+      <button key={city._id}>
+        <i class="material-icons">account_balance</i>
+        <p>{city.name}</p>
+      </button>
     ));
 
     return (
       <div className="cities">
-        <h3>List of cities</h3>
-
-        <ul>{listItems}</ul>
+        {listItems}
 
         <BackButton />
       </div>
