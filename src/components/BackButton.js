@@ -28,7 +28,7 @@ class BackButton extends Component {
     return (
       <div style={divStyle}>
         <i
-          class="material-icons"
+          className="material-icons"
           style={iStyle}
           onClick={this.context.router.history.goBack}
         >

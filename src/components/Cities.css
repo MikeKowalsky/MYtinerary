@@ -37,6 +37,18 @@ button i {
   color: red;
 }
 
-/* .cities p {
-  margin: 0.5em;
-} */
+input {
+  border: 0;
+  border-bottom: 1px solid black;
+
+  width: 200px;
+
+  font-size: 20px;
+
+  padding: 20px;
+  margin: 7px 0 20px 0;
+}
+
+input:focus {
+  outline: none;
+}

@@ -3,17 +3,14 @@ import axios from "axios";
 import BackButton from "./BackButton";
 import "./Cities.css";
 
-// const pStyle = {
-//   margin: "20px",
-//   fontSize: "20px",
-//   color: "red",
-//   textAlign: "center"
-// };
-
 class Cities extends Component {
-  state = {
-    cities: []
-  };
+  constructor() {
+    super();
+    this.state = {
+      cities: [],
+      search: ""
+    };
+  }
 
   componentDidMount() {
     axios.get(`http://localhost:5000/cities/all`).then(res => {
@@ -22,22 +19,39 @@ class Cities extends Component {
     });
   }
 
-  render() {
-    // const listItems = this.state.cities.map(city => (
-    //   <div>
-    //     <p key={city._id}>{city.name}</p>
-    //   </div>
-    // ));
+  updateSearch = e => {
+    this.setState({ search: e.target.value });
+  };
 
-    const listItems = this.state.cities.map(city => (
-      <button key={city._id}>
-        <i class="material-icons">account_balance</i>
-        <p>{city.name}</p>
-      </button>
-    ));
+  render() {
+    const filteredCities = this.state.cities.filter(
+      city =>
+        city.name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1
+    );
+
+    let listItems;
+    if (filteredCities.length > 0) {
+      listItems = filteredCities.map(city => (
+        <button key={city._id}>
+          <i className="material-icons">account_balance</i>
+          <p>{city.name}</p>
+        </button>
+      ));
+    } else {
+      listItems = <p>loading, plase wait ...</p>;
+    }
 
     return (
       <div className="cities">
+        <form>
+          <input
+            type="text"
+            value={this.state.search}
+            onChange={this.updateSearch.bind(this)}
+            placeholder="Search for ..."
+          />
+        </form>
+
         {listItems}
 
         <BackButton />
