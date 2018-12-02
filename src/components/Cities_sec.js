@@ -1,8 +1,6 @@
 import React, { Component } from "react";
-// import axios from "axios";
+import axios from "axios";
 import BackButton from "./BackButton";
-import { connect } from "react-redux";
-import { fetchCities } from "../actions/actionCreators";
 import "./Cities.css";
 
 class Cities extends Component {
@@ -14,8 +12,11 @@ class Cities extends Component {
     };
   }
 
-  componentWillMount() {
-    this.props.fetchCities();
+  componentDidMount() {
+    axios.get(`http://localhost:5000/cities/all`).then(res => {
+      const cities = res.data;
+      this.setState({ cities });
+    });
   }
 
   updateSearch = e => {
@@ -23,8 +24,6 @@ class Cities extends Component {
   };
 
   render() {
-    console.log(this.props);
-
     const filteredCities = this.state.cities.filter(
       city =>
         city.name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1
@@ -61,11 +60,4 @@ class Cities extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  cities: state.cities.fetchedCities
-});
-
-export default connect(
-  mapStateToProps,
-  { fetchCities }
-)(Cities);
+export default Cities;
