@@ -1,37 +1,52 @@
 import React, { Component } from "react";
-import axios from "axios";
 import BackButton from "./BackButton";
+import { connect } from "react-redux";
 import "./Cities.css";
 
-// const pStyle = {
-//   margin: "20px",
-//   fontSize: "20px",
-//   color: "red",
-//   textAlign: "center"
-// };
-
 class Cities extends Component {
-  state = {
-    cities: []
-  };
-
-  componentDidMount() {
-    axios.get(`http://localhost:5000/cities/all`).then(res => {
-      const cities = res.data;
-      this.setState({ cities });
-    });
+  constructor() {
+    super();
+    this.state = {
+      search: ""
+    };
   }
 
+  updateSearch = e => {
+    this.setState({ search: e.target.value });
+  };
+
   render() {
-    const listItems = this.state.cities.map(city => (
-      <li key={city._id}>{city.name}</li>
-    ));
+    console.log(this.props);
+
+    const filteredCities = this.props.cities.filter(
+      city =>
+        city.name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1
+    );
+
+    let listItems;
+    if (filteredCities.length > 0) {
+      listItems = filteredCities.map(city => (
+        <button key={city._id}>
+          <i className="material-icons">account_balance</i>
+          <p>{city.name}</p>
+        </button>
+      ));
+    } else {
+      listItems = <p>loading, plase wait ...</p>;
+    }
 
     return (
       <div className="cities">
-        <h3>List of cities</h3>
+        <form>
+          <input
+            type="text"
+            value={this.state.search}
+            onChange={this.updateSearch.bind(this)}
+            placeholder="Search for ..."
+          />
+        </form>
 
-        <ul>{listItems}</ul>
+        {listItems}
 
         <BackButton />
       </div>
@@ -39,4 +54,10 @@ class Cities extends Component {
   }
 }
 
-export default Cities;
+const mapStateToProps = state => {
+  return {
+    cities: state.cities
+  };
+};
+
+export default connect(mapStateToProps)(Cities);

@@ -1,27 +1,25 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import App from "./App";
 
-import Cities from "./components/Cities";
-import { Login } from "./components/Login";
-import { SignUp } from "./components/SignUp";
-
-import { BrowserRouter as Router, Route } from "react-router-dom";
 import * as serviceWorker from "./serviceWorker";
 
-const routing = (
-  <Router>
-    <div>
-      <Route exact path="/" component={App} />
-      <Route path="/cities" component={Cities} />
-      <Route path="/login" component={Login} />
-      <Route path="/signup" component={SignUp} />
-    </div>
-  </Router>
+import Root from "./components/Root";
+import { createStore, applyMiddleware, compose } from "redux";
+import thunk from "redux-thunk";
+import rootReducer from "./reducers";
+import { fetchAllCities } from "./actions";
+
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+const store = createStore(
+  rootReducer,
+  composeEnhancers(applyMiddleware(thunk))
 );
-ReactDOM.render(routing, document.getElementById("root"));
-// ReactDOM.render(<App />, document.getElementById('root'));
+
+store.dispatch(fetchAllCities());
+
+ReactDOM.render(<Root store={store} />, document.getElementById("root"));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
