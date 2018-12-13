@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import App from "../App";
 import Cities from "./Cities";
+import Itineraries from "./Itineraries";
 import { Login } from "./Login";
 import { SignUp } from "./SignUp";
 
@@ -14,6 +15,7 @@ const Root = ({ store }) => (
       <div>
         <Route exact path="/" component={App} />
         <Route path="/cities" component={Cities} />
+        <Route path="/city/oneCity" component={Itineraries} />
         <Route path="/login" component={Login} />
         <Route path="/signup" component={SignUp} />
       </div>
