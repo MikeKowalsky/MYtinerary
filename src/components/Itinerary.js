@@ -1,10 +1,6 @@
-import React, { Component } from "react";
-import BackButton from "./BackButton";
-import Itinerary from "./Itinerary";
-import { connect } from "react-redux";
-import "./Itineraries.css";
+import React, { Component, Fragment } from "react";
 
-class Itineraries extends Component {
+class Itinerarie extends Component {
   constructor() {
     super();
     this.state = {};
@@ -12,12 +8,8 @@ class Itineraries extends Component {
 
   render() {
     return (
-      <div className="itineraries">
-        <h2>Barcelona</h2>
-
-        <Itinerary />
-
-        {/* <div className="my-card">
+      <Fragment>
+        <div className="my-card">
           <div className="all-info">
             <p className="user-name">GaudiLover</p>
             <div className="text-info">
@@ -32,18 +24,10 @@ class Itineraries extends Component {
           <div>
             <button className="view-all-button">View All</button>
           </div>
-        </div> */}
-
-        <BackButton />
-      </div>
+        </div>
+      </Fragment>
     );
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    // cities: state.cities
-  };
-};
-
-export default connect(mapStateToProps)(Itineraries);
+export default Itinerarie;
