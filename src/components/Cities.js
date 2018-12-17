@@ -4,6 +4,9 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import "./Cities.css";
 
+//test
+// import { fetchIterinariesForOneCity } from "../actions";
+
 class Cities extends Component {
   constructor() {
     super();
@@ -22,7 +25,7 @@ class Cities extends Component {
     if (!this.props.cities) {
       listItems = <p>loading, please wait ...</p>;
     } else {
-      console.log(this.props);
+      // console.log(this.props);
       const filteredCities = this.props.cities.filter(
         city =>
           city.name.toLowerCase().indexOf(this.state.search.toLowerCase()) !==
@@ -31,8 +34,13 @@ class Cities extends Component {
 
       if (filteredCities.length > 0) {
         listItems = filteredCities.map(city => (
-          <Link to="/city/oneCity">
-            <button key={city._id} className="city-button">
+          <Link to={`/city/oneCity/${city.name}`} key={city._id}>
+            <button
+              className="city-button"
+              // onClick={dispatch =>
+              //   dispatch(fetchIterinariesForOneCity(city.name))
+              // }
+            >
               <i className="material-icons">account_balance</i>
               <p>{city.name}</p>
             </button>

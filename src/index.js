@@ -17,6 +17,7 @@ const store = createStore(
   composeEnhancers(applyMiddleware(thunk))
 );
 
+// I should move this somewhere else  -> App.js onclick arrow
 store.dispatch(fetchAllCities());
 
 ReactDOM.render(<Root store={store} />, document.getElementById("root"));

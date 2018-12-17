@@ -15,7 +15,7 @@ const Root = ({ store }) => (
       <div>
         <Route exact path="/" component={App} />
         <Route path="/cities" component={Cities} />
-        <Route path="/city/oneCity" component={Itineraries} />
+        <Route path="/city/oneCity/:cityName" component={Itineraries} />
         <Route path="/login" component={Login} />
         <Route path="/signup" component={SignUp} />
       </div>

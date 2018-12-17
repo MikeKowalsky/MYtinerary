@@ -1,10 +1,10 @@
 import React, { Component, Fragment } from "react";
 
 class Itinerarie extends Component {
-  constructor() {
-    super();
-    this.state = {};
-  }
+  // constructor() {
+  //   super();
+  //   this.state = {};
+  // }
 
   render() {
     return (
