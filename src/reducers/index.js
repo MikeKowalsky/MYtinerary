@@ -4,5 +4,5 @@ import itineraries from "./itineraryReducer";
 
 export default combineReducers({
   cities: cities,
-  inineraries: itineraries
+  itineraries: itineraries
 });

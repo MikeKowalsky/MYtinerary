@@ -11,6 +11,7 @@
 .my-card {
   width: 90%;
   border: 1px solid black;
+  margin-top: 20px;
 }
 
 .user-name {
@@ -24,7 +25,7 @@
 .iti-info {
   font-size: 14px;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
 }
 
 /* .iti-info span {

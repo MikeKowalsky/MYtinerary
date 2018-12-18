@@ -1,23 +1,25 @@
 import React, { Component, Fragment } from "react";
 
 class Itinerarie extends Component {
-  // constructor() {
-  //   super();
-  //   this.state = {};
-  // }
+  constructor(props) {
+    super(props);
+    console.log(props.itinerary);
+  }
 
   render() {
+    const { author, name, rating, duration, priceRange } = this.props.itinerary;
+
     return (
       <Fragment>
         <div className="my-card">
           <div className="all-info">
-            <p className="user-name">GaudiLover</p>
+            <p className="user-name">{author}</p>
             <div className="text-info">
-              <p>Gaudi In A Day</p>
+              <p>{name}</p>
               <div className="iti-info">
-                <span>Ranting: 4.67</span>
-                <span>12 Hours</span>
-                <span>$$</span>
+                <span>Ranting: {rating}</span>
+                <span>{duration} Hours</span>
+                <span>{priceRange}</span>
               </div>
             </div>
           </div>

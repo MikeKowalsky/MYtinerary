@@ -1,46 +1,34 @@
-// import { connect } from "react-redux";
-// import { fetchIterinariesForOneCity } from "../actions";
-// import ItinerariesDumb from "./ItinerariesDumb";
-
-// const mapDispatchToProps = {
-//   fetchIterinariesForOneCity,
-// };
-
-// export default connect(
-//   null,
-//   mapDispatchToProps
-// )(ItinerariesDumb);
-
 import React, { Component } from "react";
 import BackButton from "./BackButton";
 import Itinerary from "./Itinerary";
 import { connect } from "react-redux";
-import "./Itineraries.css";
 import { fetchIterinariesForOneCity } from "../actions";
+import "./Itineraries.css";
 
 class Itineraries extends Component {
-  constructor(props) {
-    super(props);
-    console.log(this.props);
-    this.state = {};
-    console.log(this.state);
+  componentDidMount() {
+    this.props.getItineraries();
   }
 
   render() {
-    console.log(this.props.itineraries);
-
     const cityName = this.props.match.params.cityName;
-    console.log(cityName);
+
+    let test = "";
+    if (!this.props.itineraries) {
+      test = <p>Loading .....</p>;
+    } else if (this.props.itineraries.length === 0) {
+      test = <p>No search results ...</p>;
+    } else {
+      test = this.props.itineraries.map(iti => (
+        <Itinerary itinerary={iti} key={iti._id} />
+      ));
+    }
 
     return (
       <div className="itineraries">
-        <h2>{this.props.match.params.cityName}</h2>
+        <h2>{cityName}</h2>
 
-        {/* <button onClick={get}>Test</button> */}
-
-        {/* <ul>{this.state.itineraries.map(iti => `<li>{iti.name}</li>`)}</ul> */}
-
-        <Itinerary />
+        {test}
 
         <BackButton />
       </div>
@@ -48,13 +36,9 @@ class Itineraries extends Component {
   }
 }
 
-const mapDispatchToProps = (dispatch, cityName) => ({
-  get: dispatch(fetchIterinariesForOneCity(cityName))
+const mapDispatchToProps = (dispatch, props) => ({
+  getItineraries: () => dispatch(fetchIterinariesForOneCity(props))
 });
-
-// const mapDispatchToProps = {
-//   fetchIterinariesForOneCity
-// };
 
 const mapStateToProps = state => {
   return {
@@ -62,14 +46,7 @@ const mapStateToProps = state => {
   };
 };
 
-// const mapDispatchToProps = dispatch => {
-//   return {
-//     get: cityName => dispatch(fetchIterinariesForOneCity(cityName))
-//   };
-// };
-
 export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(Itineraries);
-// export default Itineraries;
