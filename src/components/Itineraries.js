@@ -13,13 +13,13 @@ class Itineraries extends Component {
   render() {
     const cityName = this.props.match.params.cityName;
 
-    let test = "";
+    let itinerariesTemplate = "";
     if (!this.props.itineraries) {
-      test = <p>Loading .....</p>;
+      itinerariesTemplate = <p>Loading .....</p>;
     } else if (this.props.itineraries.length === 0) {
-      test = <p>No search results ...</p>;
+      itinerariesTemplate = <p>No search results ...</p>;
     } else {
-      test = this.props.itineraries.map(iti => (
+      itinerariesTemplate = this.props.itineraries.map(iti => (
         <Itinerary itinerary={iti} key={iti._id} />
       ));
     }
@@ -28,7 +28,7 @@ class Itineraries extends Component {
       <div className="itineraries">
         <h2>{cityName}</h2>
 
-        {test}
+        {itinerariesTemplate}
 
         <BackButton />
       </div>

@@ -1,11 +1,7 @@
 import React, { Component, Fragment } from "react";
+import "./Itinerary.css";
 
 class Itinerarie extends Component {
-  constructor(props) {
-    super(props);
-    console.log(props.itinerary);
-  }
-
   render() {
     const { author, name, rating, duration, priceRange } = this.props.itinerary;
 
@@ -24,7 +20,11 @@ class Itinerarie extends Component {
             </div>
           </div>
           <div>
-            <button className="view-all-button">View All</button>
+            <button className="view-all-button">
+              <i class="material-icons">expand_more</i>
+              <span>View All</span>
+              <i class="material-icons">expand_more</i>
+            </button>
           </div>
         </div>
       </Fragment>

@@ -35,12 +35,7 @@ class Cities extends Component {
       if (filteredCities.length > 0) {
         listItems = filteredCities.map(city => (
           <Link to={`/city/oneCity/${city.name}`} key={city._id}>
-            <button
-              className="city-button"
-              // onClick={dispatch =>
-              //   dispatch(fetchIterinariesForOneCity(city.name))
-              // }
-            >
+            <button className="city-button">
               <i className="material-icons">account_balance</i>
               <p>{city.name}</p>
             </button>
