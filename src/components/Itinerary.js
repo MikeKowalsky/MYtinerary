@@ -21,9 +21,9 @@ class Itinerarie extends Component {
           </div>
           <div>
             <button className="view-all-button">
-              <i class="material-icons">expand_more</i>
+              <i className="material-icons">expand_more</i>
               <span>View All</span>
-              <i class="material-icons">expand_more</i>
+              <i className="material-icons">expand_more</i>
             </button>
           </div>
         </div>
