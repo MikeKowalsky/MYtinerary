@@ -4,10 +4,10 @@ import { Provider } from "react-redux";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import App from "./App";
-import Cities from "./Pages/Cities/Cities";
-import Itineraries from "./Pages/Itineraries/Itineraries";
-import { Login } from "./Pages/Login/Login";
-import { SignUp } from "./Pages/SignUp/SignUp";
+import Cities from "./pages/Cities/Cities";
+import Itineraries from "./pages/Itineraries/Itineraries";
+import { Login } from "./pages/Login/Login";
+import { SignUp } from "./pages/SignUp/SignUp";
 
 const Root = ({ store }) => (
   <Provider store={store}>
