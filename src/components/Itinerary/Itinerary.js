@@ -3,7 +3,15 @@ import "./Itinerary.css";
 
 class Itinerarie extends Component {
   render() {
-    const { author, name, rating, duration, priceRange } = this.props.itinerary;
+    console.log(this.props.itinerary);
+    const {
+      author,
+      name,
+      rating,
+      duration,
+      priceRange,
+      tags
+    } = this.props.itinerary;
 
     return (
       <Fragment>
@@ -12,10 +20,15 @@ class Itinerarie extends Component {
             <p className="user-name">{author}</p>
             <div className="text-info">
               <p>{name}</p>
-              <div className="iti-info">
+              <div className="iti-info my-space-bet">
                 <span>Ranting: {rating}</span>
                 <span>{duration} Hours</span>
                 <span>{priceRange}</span>
+              </div>
+              <div className="iti-info my-flex-start">
+                {tags.map((tag, i) => (
+                  <span key={i}>#{tag}</span>
+                ))}
               </div>
             </div>
           </div>

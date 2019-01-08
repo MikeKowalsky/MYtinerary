@@ -21,7 +21,18 @@
 .iti-info {
   font-size: 18px;
   display: flex;
+}
+
+.my-space-bet {
   justify-content: space-between;
+}
+
+.my-flex-start {
+  justify-content: flex-start;
+}
+
+.my-flex-start span {
+  margin: 0 5px;
 }
 
 .all-info {
