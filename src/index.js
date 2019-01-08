@@ -4,7 +4,7 @@ import "./index.css";
 
 import * as serviceWorker from "./serviceWorker";
 
-import Root from "./components/Root";
+import Root from "./Root";
 import { createStore, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
 import rootReducer from "./reducers";

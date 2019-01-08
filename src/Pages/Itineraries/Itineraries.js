@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import BackButton from "./BackButton";
-import Itinerary from "./Itinerary";
+import BackButton from "../../components/BackButton/BackButton";
+import Itinerary from "../../components/Itinerary/Itinerary";
 import { connect } from "react-redux";
-import { fetchIterinariesForOneCity } from "../actions";
+import { fetchIterinariesForOneCity } from "../../actions";
 import "./Itineraries.css";
 
 class Itineraries extends Component {
