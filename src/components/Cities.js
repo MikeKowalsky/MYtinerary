@@ -1,7 +1,11 @@
 import React, { Component } from "react";
 import BackButton from "./BackButton";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import "./Cities.css";
+
+//test
+// import { fetchIterinariesForOneCity } from "../actions";
 
 class Cities extends Component {
   constructor() {
@@ -16,23 +20,30 @@ class Cities extends Component {
   };
 
   render() {
-    console.log(this.props);
-
-    const filteredCities = this.props.cities.filter(
-      city =>
-        city.name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1
-    );
-
     let listItems;
-    if (filteredCities.length > 0) {
-      listItems = filteredCities.map(city => (
-        <button key={city._id}>
-          <i className="material-icons">account_balance</i>
-          <p>{city.name}</p>
-        </button>
-      ));
+
+    if (!this.props.cities) {
+      listItems = <p>loading, please wait ...</p>;
     } else {
-      listItems = <p>loading, plase wait ...</p>;
+      // console.log(this.props);
+      const filteredCities = this.props.cities.filter(
+        city =>
+          city.name.toLowerCase().indexOf(this.state.search.toLowerCase()) !==
+          -1
+      );
+
+      if (filteredCities.length > 0) {
+        listItems = filteredCities.map(city => (
+          <Link to={`/city/${city.name}`} key={city._id}>
+            <button className="city-button">
+              <i className="material-icons">account_balance</i>
+              <p>{city.name}</p>
+            </button>
+          </Link>
+        ));
+      } else {
+        listItems = <p>there is no city like that</p>;
+      }
     }
 
     return (
