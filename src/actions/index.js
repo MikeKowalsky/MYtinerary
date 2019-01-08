@@ -1,8 +1,7 @@
-import { FETCH_CITY } from "./types";
+import { FETCH_CITY, FETCH_ITINERARIES } from "./types";
 import axios from "axios";
 
-const apiUrl = "http://localhost:5000/cities/all";
-
+// akcja synchroniczna - bo tylko taka moze rzyczywiscie zmienic state w store
 export const fetchCities = cities => {
   return {
     type: FETCH_CITY,
@@ -10,12 +9,35 @@ export const fetchCities = cities => {
   };
 };
 
+// akcja asynchrniczna, bo musze zrobic fetch, ktora jak otrzyma odpowiedz calluje tą akcję synchroniczna
 export const fetchAllCities = () => {
   return dispatch => {
     return axios
-      .get(apiUrl)
+      .get("http://localhost:5000/api/city/all")
       .then(response => {
         dispatch(fetchCities(response.data));
+      })
+      .catch(error => {
+        throw error;
+      });
+  };
+};
+
+export const fetchItineraries = itineraries => {
+  return {
+    type: FETCH_ITINERARIES,
+    itineraries
+  };
+};
+
+export const fetchIterinariesForOneCity = props => {
+  return dispatch => {
+    const cityName = props.match.params.cityName;
+    // console.log(`arguments in fetchIterinariesForOneCity: ${cityNameIn}`);
+    return axios
+      .get(`http://localhost:5000/api/itinerary/${cityName}`)
+      .then(response => {
+        dispatch(fetchItineraries(response.data));
       })
       .catch(error => {
         throw error;

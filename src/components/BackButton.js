@@ -5,14 +5,6 @@ const divStyle = {
   justifyContent: "center"
 };
 
-// const buttonStyle = {
-//   margin: "10px",
-//   padding: "10px",
-//   backgroundColor: "lightgrey",
-//   border: "1px solid black",
-//   borderRadius: "3px"
-// };
-
 const iStyle = {
   fontSize: "48px",
   margin: "20px 0"
@@ -32,14 +24,8 @@ class BackButton extends Component {
           style={iStyle}
           onClick={this.context.router.history.goBack}
         >
-          home
+          arrow_back_ios
         </i>
-        {/* <button
-          style={buttonStyle}
-          onClick={this.context.router.history.goBack}
-        >
-          Back
-        </button> */}
       </div>
     );
   }
