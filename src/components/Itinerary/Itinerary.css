@@ -18,10 +18,33 @@
   margin: 0px 5px;
 }
 
+.iti-img {
+  padding: 5px;
+  margin: 0;
+}
+
+.iti-img img {
+  width: 100px;
+  height: 100px;
+
+  border-radius: 10px;
+}
+
 .iti-info {
   font-size: 18px;
   display: flex;
+}
+
+.my-space-bet {
   justify-content: space-between;
+}
+
+.my-flex-start {
+  justify-content: flex-start;
+}
+
+.my-flex-start span {
+  margin: 0 5px;
 }
 
 .all-info {

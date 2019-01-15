@@ -4,9 +4,6 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import "./Cities.css";
 
-//test
-// import { fetchIterinariesForOneCity } from "../actions";
-
 class Cities extends Component {
   constructor() {
     super();

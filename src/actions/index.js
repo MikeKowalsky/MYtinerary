@@ -13,7 +13,7 @@ export const fetchCities = cities => {
 export const fetchAllCities = () => {
   return dispatch => {
     return axios
-      .get("http://localhost:5000/api/city/all")
+      .get("http://localhost:5000/api/cities")
       .then(response => {
         dispatch(fetchCities(response.data));
       })
@@ -35,7 +35,7 @@ export const fetchIterinariesForOneCity = props => {
     const cityName = props.match.params.cityName;
     // console.log(`arguments in fetchIterinariesForOneCity: ${cityNameIn}`);
     return axios
-      .get(`http://localhost:5000/api/itinerary/${cityName}`)
+      .get(`http://localhost:5000/api/itineraries/${cityName}`)
       .then(response => {
         dispatch(fetchItineraries(response.data));
       })
