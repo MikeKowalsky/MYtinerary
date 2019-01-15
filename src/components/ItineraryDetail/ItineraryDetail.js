@@ -1,17 +1,14 @@
 import React, { Component, Fragment } from "react";
+import "./itineraryDetail.css";
 
 class ItineraryDetails extends Component {
   render() {
     console.log(this.props.info);
     const { images } = this.props.info;
 
-    handleClick = () => {
-      // przekierowanie do itineraries
-    };
-
     return (
       <Fragment>
-        <div>
+        <div className="wrapper">
           {images.map((img, i) => (
             <div key={i} className="imgWrapper">
               <img src={img.url} alt="foto" />
@@ -19,7 +16,7 @@ class ItineraryDetails extends Component {
           ))}
         </div>
         <div>
-          <button className="view-all-button" onClick={this.handleClick}>
+          <button className="view-all-button" onClick={this.props.back}>
             <i className="material-icons">expand_less</i>
             <span>close</span>
             <i className="material-icons">expand_less</i>

@@ -1,6 +1,10 @@
 import React, { Component, Fragment } from "react";
 
 class ItineraryBasic extends Component {
+  randomNumber = () => {
+    return parseInt(Math.random() * 69) + 1;
+  };
+
   render() {
     console.log(this.props.info);
     const {
@@ -15,7 +19,13 @@ class ItineraryBasic extends Component {
     return (
       <Fragment>
         <div className="all-info">
-          <p className="user-name">{author}</p>
+          <dir className="iti-img">
+            <img
+              src={`http://i.pravatar.cc/300?img=${this.randomNumber()}`}
+              alt="avatar"
+            />
+            <p className="user-name">{author}</p>
+          </dir>
           <div className="text-info">
             <p>{name}</p>
             <div className="iti-info my-space-bet">
