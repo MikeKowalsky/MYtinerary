@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 
+import isEmpty from "../../validation/is-empty";
+
 import BackButton from "../../components/BackButton/BackButton";
 
 import "./Login.css";
@@ -17,7 +19,7 @@ class Login extends Component {
     const password = this.passwordEl.current.value;
 
     // Super simple validation
-    if (email.trim().length === 0 || password.trim().length === 0) return;
+    if (isEmpty(email) || isEmpty(password)) return;
 
     console.log(email, password);
   };
