@@ -1,3 +1,5 @@
-export const FETCH_CITY = "FETCH_CITY";
+export const FETCH_CITIES = "FETCH_CITIES";
 
 export const FETCH_ITINERARIES = "FETCH_ININERARIES";
+
+export const SET_CURRENT_USER = "SET_CURRENT_USER";

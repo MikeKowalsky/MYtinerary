@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from "react";
 
 class ItineraryBasic extends Component {
+  //just temporary
   randomNumber = () => {
     return parseInt(Math.random() * 69) + 1;
   };

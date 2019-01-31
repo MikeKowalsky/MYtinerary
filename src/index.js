@@ -8,7 +8,7 @@ import Root from "./Root";
 import { createStore, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
 import rootReducer from "./reducers";
-import { fetchAllCities } from "./actions";
+import { fetchAllCities } from "./actions/citiesActions";
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
