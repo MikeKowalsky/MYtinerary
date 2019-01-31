@@ -28,6 +28,11 @@ class Header extends Component {
     });
   };
 
+  // need to do this because, when user click on a link Menu needs to be closed before loading login/signup page
+  componentWillUnmount() {
+    this.setState({ isOpen: false });
+  }
+
   render() {
     return (
       <div style={divStyle}>
@@ -38,10 +43,12 @@ class Header extends Component {
           menu
         </i>
 
-        <Menu show={this.state.isOpen}>
-          {/* <Menu show={this.state.isOpen} onClose={this.toggleModal}> */}
-          {/* Here's some content for the modal */}
-        </Menu>
+        {this.state.isOpen && <Menu />}
+
+        {/* <Menu show={this.state.isOpen}> */}
+        {/* <Menu show={this.state.isOpen} onClose={this.toggleModal}> */}
+        {/* Here's some content for the modal */}
+        {/* </Menu> */}
       </div>
     );
   }
