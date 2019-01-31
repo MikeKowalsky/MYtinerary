@@ -1,6 +1,8 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 
 import isEmpty from "../../validation/is-empty";
+import { loginUser } from "../../actions/userActions";
 
 import BackButton from "../../components/BackButton/BackButton";
 
@@ -21,7 +23,13 @@ class Login extends Component {
     // Super simple validation
     if (isEmpty(email) || isEmpty(password)) return;
 
-    console.log(email, password);
+    const user = {
+      email,
+      password
+    };
+
+    console.log(user);
+    this.props.loginUser(user);
   };
 
   render() {
@@ -48,4 +56,11 @@ class Login extends Component {
   }
 }
 
-export default Login;
+const mapStateToProps = state => ({
+  user: state.user
+});
+
+export default connect(
+  mapStateToProps,
+  { loginUser }
+)(Login);
