@@ -1,7 +1,10 @@
 import React, { Component } from "react";
-import BackButton from "../../components/BackButton/BackButton";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
+
+import BackButton from "../../components/BackButton/BackButton";
+
 import "./Cities.css";
 
 class Cities extends Component {
@@ -62,10 +65,12 @@ class Cities extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    cities: state.cities
-  };
+Cities.propTypes = {
+  cities: PropTypes.object.isReuired
 };
+
+const mapStateToProps = state => ({
+  cities: state.cities
+});
 
 export default connect(mapStateToProps)(Cities);
