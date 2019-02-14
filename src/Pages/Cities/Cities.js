@@ -8,8 +8,8 @@ import BackButton from "../../components/BackButton/BackButton";
 import "./Cities.css";
 
 class Cities extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       search: ""
     };
@@ -66,7 +66,7 @@ class Cities extends Component {
 }
 
 Cities.propTypes = {
-  cities: PropTypes.object.isReuired
+  cities: PropTypes.array.isRequired
 };
 
 const mapStateToProps = state => ({
