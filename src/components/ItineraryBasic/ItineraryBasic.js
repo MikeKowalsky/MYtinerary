@@ -1,7 +1,8 @@
 import React, { Component, Fragment } from "react";
+import PropTypes from "prop-types";
 
 class ItineraryBasic extends Component {
-  //just temporary
+  //just temporary for different fotos
   randomNumber = () => {
     return parseInt(Math.random() * 69) + 1;
   };
@@ -45,5 +46,9 @@ class ItineraryBasic extends Component {
     );
   }
 }
+
+ItineraryBasic.propTypes = {
+  info: PropTypes.object.isRequired
+};
 
 export default ItineraryBasic;

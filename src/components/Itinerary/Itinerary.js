@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from "react";
+import PropTypes from "prop-types";
 
 import ItineraryBasic from "../ItineraryBasic/ItineraryBasic";
 import ItineraryDetails from "../ItineraryDetail/ItineraryDetail";
@@ -41,5 +42,9 @@ class Itinerary extends Component {
     );
   }
 }
+
+Itinerary.propTypes = {
+  itinerary: PropTypes.object.isRequired
+};
 
 export default Itinerary;

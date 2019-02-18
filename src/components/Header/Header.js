@@ -1,15 +1,10 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+
 import Menu from "../Menu/Menu";
 
-const divStyle = {
-  margin: "20px",
-  display: "flex",
-  justifyContent: "space-between"
-};
-
-const iStyle = {
-  fontSize: "48px"
-};
+import "./Header.css";
 
 class Header extends Component {
   constructor() {
@@ -18,6 +13,7 @@ class Header extends Component {
   }
 
   toggleModal = () => {
+    console.log("in toggleModal");
     if (!this.state.isOpen) {
       document.addEventListener("click", this.toggleModal, false);
     } else {
@@ -35,11 +31,9 @@ class Header extends Component {
 
   render() {
     return (
-      <div style={divStyle}>
-        <i style={iStyle} className="material-icons">
-          account_circle
-        </i>
-        <i style={iStyle} className="material-icons" onClick={this.toggleModal}>
+      <div className="header">
+        <i className="material-icons">account_circle</i>
+        <i className="material-icons" onClick={this.toggleModal}>
           menu
         </i>
 
@@ -54,4 +48,14 @@ class Header extends Component {
   }
 }
 
-export default Header;
+Header.propTypes = {
+  user: PropTypes.object.isRequired,
+  isAuthenticated: PropTypes.bool.isRequired
+};
+
+const mapStateToProps = state => ({
+  user: state.user,
+  isAuthenticated: state.user.isAuthenticated
+});
+
+export default connect(mapStateToProps)(Header);

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-
+import PropTypes from "prop-types";
 import isEmpty from "../../validation/is-empty";
 import { loginUser } from "../../actions/userActions";
 
@@ -55,6 +55,11 @@ class Login extends Component {
     );
   }
 }
+
+Login.propTypes = {
+  user: PropTypes.object.isRequired,
+  loginUser: PropTypes.func.isRequired
+};
 
 const mapStateToProps = state => ({
   user: state.user

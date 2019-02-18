@@ -1,0 +1,9 @@
+.header {
+  margin: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.header i {
+  font-size: 48px;
+}
