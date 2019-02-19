@@ -1,12 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
 import isEmpty from "../../validation/is-empty";
 import { loginUser } from "../../actions/userActions";
 
 import BackButton from "../../components/BackButton/BackButton";
-
-import "./Login.css";
 
 class Login extends Component {
   constructor() {
@@ -30,11 +29,12 @@ class Login extends Component {
 
     console.log(user);
     this.props.loginUser(user);
+    // this.props.history.push("/");
   };
 
   render() {
     return (
-      <div className="login">
+      <div className="login form-wrapper">
         <h1>Login</h1>
         <form className="user-form" onSubmit={this.submitHandler}>
           <div className="form-control">
@@ -68,4 +68,4 @@ const mapStateToProps = state => ({
 export default connect(
   mapStateToProps,
   { loginUser }
-)(Login);
+)(withRouter(Login));

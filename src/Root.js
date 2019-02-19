@@ -7,7 +7,7 @@ import App from "./App";
 import Cities from "./pages/Cities/Cities";
 import Itineraries from "./pages/Itineraries/Itineraries";
 import Login from "./pages/Login/Login";
-import { SignUp } from "./pages/SignUp/SignUp";
+import SignUp from "./pages/SignUp/SignUp";
 
 const Root = ({ store }) => (
   <Provider store={store}>
