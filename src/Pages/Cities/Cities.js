@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
 import BackButton from "../../components/BackButton/BackButton";
+import Header from "../../components/Header/Header";
 
 import "./Cities.css";
 
@@ -47,20 +48,22 @@ class Cities extends Component {
     }
 
     return (
-      <div className="cities">
-        <form>
-          <input
-            type="text"
-            value={this.state.search}
-            onChange={this.updateSearch.bind(this)}
-            placeholder="Search for ..."
-          />
-        </form>
+      <React.Fragment>
+        <Header />
+        <div className="cities">
+          <form>
+            <input
+              type="text"
+              value={this.state.search}
+              onChange={this.updateSearch.bind(this)}
+              placeholder="Search for ..."
+            />
+          </form>
 
-        {listItems}
-
+          {listItems}
+        </div>
         <BackButton />
-      </div>
+      </React.Fragment>
     );
   }
 }

@@ -5,6 +5,7 @@ import { fetchIterinariesForOneCity } from "../../actions/itinerariesActions";
 
 import "./Itineraries.css";
 
+import Header from "../../components/Header/Header";
 import BackButton from "../../components/BackButton/BackButton";
 import Itinerary from "../../components/Itinerary/Itinerary";
 
@@ -28,13 +29,15 @@ class Itineraries extends Component {
     }
 
     return (
-      <div className="itineraries">
-        <h2>{cityName}</h2>
+      <React.Fragment>
+        <Header />
+        <div className="itineraries">
+          <h2>{cityName}</h2>
 
-        {itinerariesTemplate}
-
+          {itinerariesTemplate}
+        </div>
         <BackButton />
-      </div>
+      </React.Fragment>
     );
   }
 }

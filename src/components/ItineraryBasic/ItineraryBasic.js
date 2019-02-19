@@ -2,13 +2,7 @@ import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
 
 class ItineraryBasic extends Component {
-  //just temporary for different fotos
-  randomNumber = () => {
-    return parseInt(Math.random() * 69) + 1;
-  };
-
   render() {
-    console.log(this.props.info);
     const {
       author,
       name,
@@ -22,10 +16,7 @@ class ItineraryBasic extends Component {
       <Fragment>
         <div className="all-info">
           <dir className="iti-img">
-            <img
-              src={`http://i.pravatar.cc/300?img=${this.randomNumber()}`}
-              alt="avatar"
-            />
+            <img src={`http://i.pravatar.cc/300?img=2`} alt="avatar" />
             <p className="user-name">{author}</p>
           </dir>
           <div className="text-info">
