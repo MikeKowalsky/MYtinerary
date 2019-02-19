@@ -4,6 +4,14 @@ import jwt_decode from "jwt-decode";
 import { SET_CURRENT_USER } from "./types";
 import setAuthToken from "../utils/setAuthToken";
 
+// Register new user
+export const registerUser = (userData, history) => dispatch => {
+  axios
+    .post("api/users/register", userData)
+    .then(res => history.push("/login"))
+    .catch(err => console.log(err));
+};
+
 // Login user - get user token
 export const loginUser = userData => dispatch => {
   axios
@@ -18,7 +26,6 @@ export const loginUser = userData => dispatch => {
 
       // Decode token to get user data
       const decoded = jwt_decode(token);
-      console.log(decoded);
 
       // Set current user
       dispatch(setCurrentUser(decoded));
