@@ -20,7 +20,8 @@ class Login extends Component {
     const password = this.passwordEl.current.value;
 
     // Super simple validation
-    if (isEmpty(email) || isEmpty(password)) return;
+    if (isEmpty(email) || isEmpty(password))
+      return alert("Please give us name and password");
 
     const user = {
       email,
@@ -29,7 +30,6 @@ class Login extends Component {
 
     console.log(user);
     this.props.loginUser(user);
-    // this.props.history.push("/");
   };
 
   render() {

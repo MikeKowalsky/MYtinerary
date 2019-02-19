@@ -35,11 +35,12 @@ class SignUp extends Component {
       isEmpty(name) ||
       isEmpty(email) ||
       isEmpty(password) ||
-      isEmpty(password2) ||
-      password !== password2
-    ) {
-      return;
-    }
+      isEmpty(password2)
+    )
+      return alert("Fill in all fields");
+
+    if (password !== password2)
+      return alert("Password confirmation incorrect!");
 
     const newUser = {
       name,

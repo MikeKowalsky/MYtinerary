@@ -9,7 +9,7 @@ export const registerUser = (userData, history) => dispatch => {
   axios
     .post("api/users/register", userData)
     .then(res => history.push("/login"))
-    .catch(err => console.log(err));
+    .catch(err => alert(err.response.data.error));
 };
 
 // Login user - get user token
@@ -30,7 +30,7 @@ export const loginUser = userData => dispatch => {
       // Set current user
       dispatch(setCurrentUser(decoded));
     })
-    .catch(err => console.log(err));
+    .catch(err => alert(err.response.data.error));
 };
 
 // Log user out
