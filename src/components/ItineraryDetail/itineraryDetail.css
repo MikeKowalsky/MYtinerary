@@ -10,3 +10,14 @@
   width: 90%;
   margin: 5px;
 }
+
+.picture-control {
+  display: flex;
+  justify-content: center;
+}
+
+.picture-control i {
+  font-size: 48px;
+  width: 100px;
+  text-align: center;
+}

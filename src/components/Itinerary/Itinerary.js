@@ -20,8 +20,8 @@ class Itinerary extends Component {
   render() {
     return (
       <Fragment>
-        <div className="my-card">
-          <ItineraryBasic info={this.props.itinerary} />
+        <div className="itinerary my-card">
+          <ItineraryBasic itinerary={this.props.itinerary} />
           {!this.state.detailsButton && (
             <button className="view-all-button" onClick={this.handleClick}>
               <i className="material-icons">expand_more</i>
@@ -31,7 +31,7 @@ class Itinerary extends Component {
           )}
           {this.state.detailsButton && (
             <ItineraryDetails
-              info={this.props.itinerary}
+              itinerary={this.props.itinerary}
               back={this.handleClick.bind(this)}
             />
           )}
