@@ -8,8 +8,7 @@
   align-items: center;
 }
 
-a {
-  color: black;
+.cities a {
   text-decoration: none;
 }
 
@@ -35,6 +34,7 @@ a {
 .city-button p {
   margin: 0;
   text-transform: uppercase;
+  color: black;
 }
 
 .city-button i {

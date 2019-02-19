@@ -22,7 +22,8 @@
   align-items: center;
 }
 
-.innerWrapper p {
+.innerWrapper p,
+button {
   text-transform: uppercase;
   color: white;
 

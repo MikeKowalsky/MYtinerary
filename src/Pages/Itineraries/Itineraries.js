@@ -1,9 +1,12 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import { fetchIterinariesForOneCity } from "../../actions/itinerariesActions";
+
+import "./Itineraries.css";
+
 import BackButton from "../../components/BackButton/BackButton";
 import Itinerary from "../../components/Itinerary/Itinerary";
-import { connect } from "react-redux";
-import { fetchIterinariesForOneCity } from "../../actions/itinerariesActions";
-import "./Itineraries.css";
 
 class Itineraries extends Component {
   componentDidMount() {
@@ -35,6 +38,10 @@ class Itineraries extends Component {
     );
   }
 }
+
+Itineraries.propTypes = {
+  itineraries: PropTypes.array.isRequired
+};
 
 const mapDispatchToProps = (dispatch, props) => ({
   getItineraries: () => dispatch(fetchIterinariesForOneCity(props))

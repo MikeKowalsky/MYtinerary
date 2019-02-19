@@ -1,4 +1,6 @@
 import React, { Component, Fragment } from "react";
+import PropTypes from "prop-types";
+
 import "./itineraryDetail.css";
 
 class ItineraryDetails extends Component {
@@ -26,5 +28,10 @@ class ItineraryDetails extends Component {
     );
   }
 }
+
+ItineraryDetails.propTypes = {
+  info: PropTypes.object.isRequired,
+  back: PropTypes.func.isRequired
+};
 
 export default ItineraryDetails;
