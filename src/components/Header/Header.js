@@ -31,10 +31,18 @@ class Header extends Component {
   }
 
   render() {
+    const { user } = this.props;
+
+    const iconField = user.isAuthenticated ? (
+      <img className="avatar" src={user.user.avatar} alt="avatar" />
+    ) : (
+      <i className="material-icons">account_circle</i>
+    );
+
     return (
       <div className="header">
         <div className="left-side">
-          <i className="material-icons">account_circle</i>
+          {iconField}
           {!this.props.home && <BackButton standAlone={false} />}
         </div>
         <i className="material-icons" onClick={this.toggleModal}>

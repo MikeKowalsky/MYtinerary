@@ -1,5 +1,5 @@
 .header {
-  margin: 20px;
+  margin: 10px;
   display: flex;
   justify-content: space-between;
 }
@@ -10,8 +10,15 @@
 
 .left-side {
   display: flex;
+  align-items: center;
 }
 
-.left-side i:first-child {
+.left-side i,
+.left-side img {
   margin-right: 10px;
+}
+
+.avatar {
+  height: 60px;
+  border-radius: 30px;
 }
