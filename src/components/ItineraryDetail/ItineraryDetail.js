@@ -5,7 +5,6 @@ import "./itineraryDetail.css";
 
 class ItineraryDetails extends Component {
   render() {
-    console.log(this.props.info);
     const { images } = this.props.info;
 
     return (

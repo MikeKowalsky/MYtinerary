@@ -18,8 +18,6 @@ class Itinerary extends Component {
   };
 
   render() {
-    console.log(this.props.itinerary);
-
     return (
       <Fragment>
         <div className="my-card">

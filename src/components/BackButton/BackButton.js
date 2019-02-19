@@ -1,29 +1,16 @@
 import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
+import PropTypes from "prop-types";
 
-const divStyle = {
-  display: "flex",
-  justifyContent: "center"
-};
-
-const iStyle = {
-  fontSize: "48px",
-  margin: "20px 0"
-};
+import "./BackButton.css";
 
 class BackButton extends Component {
-  static contextTypes = {
-    router: () => null // replace with PropTypes.object if you use them
-    //it was router: () => true, but it didn't work and now is fine
-  };
-
   render() {
     return (
-      <div style={divStyle}>
-        <i
-          className="material-icons"
-          style={iStyle}
-          onClick={this.context.router.history.goBack}
-        >
+      <div
+        className={"back-button " + (this.props.standAlone ? "add-margin" : "")}
+      >
+        <i className="material-icons" onClick={this.props.history.goBack}>
           arrow_back_ios
         </i>
       </div>
@@ -31,4 +18,12 @@ class BackButton extends Component {
   }
 }
 
-export default BackButton;
+BackButton.defaultProps = {
+  standAlone: true
+};
+
+BackButton.propTypes = {
+  standAlone: PropTypes.bool.isRequired
+};
+
+export default withRouter(BackButton);

@@ -5,6 +5,7 @@ import PropTypes from "prop-types";
 import Menu from "../Menu/Menu";
 
 import "./Header.css";
+import BackButton from "../BackButton/BackButton";
 
 class Header extends Component {
   constructor() {
@@ -30,27 +31,38 @@ class Header extends Component {
   }
 
   render() {
+    const { user } = this.props;
+
+    const iconField = user.isAuthenticated ? (
+      <img className="avatar" src={user.user.avatar} alt="avatar" />
+    ) : (
+      <i className="material-icons">account_circle</i>
+    );
+
     return (
       <div className="header">
-        <i className="material-icons">account_circle</i>
+        <div className="left-side">
+          {iconField}
+          {!this.props.home && <BackButton standAlone={false} />}
+        </div>
         <i className="material-icons" onClick={this.toggleModal}>
           menu
         </i>
 
         {this.state.isOpen && <Menu />}
-
-        {/* <Menu show={this.state.isOpen}> */}
-        {/* <Menu show={this.state.isOpen} onClose={this.toggleModal}> */}
-        {/* Here's some content for the modal */}
-        {/* </Menu> */}
       </div>
     );
   }
 }
 
+Header.defaultProps = {
+  home: false
+};
+
 Header.propTypes = {
   user: PropTypes.object.isRequired,
-  isAuthenticated: PropTypes.bool.isRequired
+  isAuthenticated: PropTypes.bool.isRequired,
+  home: PropTypes.bool.isRequired
 };
 
 const mapStateToProps = state => ({
