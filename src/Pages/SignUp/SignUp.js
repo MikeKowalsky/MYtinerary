@@ -17,6 +17,7 @@ class SignUp extends Component {
     this.password2El = React.createRef();
   }
 
+  // if user isAuth then redirect to main
   componentDidMount() {
     if (this.props.user.isAuthenticatde) {
       this.props.history.push("/");

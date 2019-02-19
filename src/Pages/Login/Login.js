@@ -14,6 +14,13 @@ class Login extends Component {
     this.passwordEl = React.createRef();
   }
 
+  // after login when isAuth changed redirect
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.user.isAuthenticated) {
+      this.props.history.push("/");
+    }
+  }
+
   submitHandler = event => {
     event.preventDefault();
     const email = this.emailEl.current.value;
