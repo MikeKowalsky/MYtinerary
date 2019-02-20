@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import { connect } from "react-redux";
 
 import "./itineraryDetail.css";
 
@@ -71,7 +72,13 @@ class ItineraryDetails extends Component {
 
 ItineraryDetails.propTypes = {
   itinerary: PropTypes.object.isRequired,
-  back: PropTypes.func.isRequired
+  back: PropTypes.func.isRequired,
+  user: PropTypes.object.isRequired
 };
 
-export default ItineraryDetails;
+const mapStateToProps = state => ({
+  user: state.user,
+  itinerary: state.itinerary
+});
+
+export default connect(mapStateToProps)(ItineraryDetails);

@@ -12,8 +12,6 @@ class ItineraryBasic extends Component {
       tags
     } = this.props.itinerary;
 
-    console.log(this.props.itinerary);
-
     return (
       <Fragment>
         <div className="itinerary-basic all-info">
