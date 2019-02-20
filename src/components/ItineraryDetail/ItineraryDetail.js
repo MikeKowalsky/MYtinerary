@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
+import MessageFeed from "../Messages/MessageFeed";
 import "./itineraryDetail.css";
 
 class ItineraryDetails extends Component {
@@ -57,6 +58,7 @@ class ItineraryDetails extends Component {
               arrow_forward_ios
             </i>
           </div>
+          <MessageFeed format="short" />
         </div>
         <div>
           <button className="view-all-button" onClick={this.props.back}>

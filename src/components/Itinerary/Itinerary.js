@@ -2,6 +2,7 @@ import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { setItinerary } from "../../actions/itineraryActions";
+import isEmpty from "../../validation/is-empty";
 
 import ItineraryBasic from "../ItineraryBasic/ItineraryBasic";
 import ItineraryDetails from "../ItineraryDetail/ItineraryDetail";
@@ -9,12 +10,12 @@ import ItineraryDetails from "../ItineraryDetail/ItineraryDetail";
 import "./Itinerary.css";
 
 class Itinerary extends Component {
-  handleClick = back => {
-    // call the action to set up current itinerary
-    this.props.setItinerary(this.props.itinerary);
-
-    // reset current itinerary
-    if (back === "back") this.props.setItinerary(null);
+  handleClick = direction => {
+    direction === "more"
+      ? // call the action to set up current itinerary
+        this.props.setItinerary(this.props.itinerary)
+      : // reset current itinerary
+        this.props.setItinerary({});
   };
 
   render() {
@@ -22,9 +23,12 @@ class Itinerary extends Component {
       <Fragment>
         <div className="itinerary my-card">
           <ItineraryBasic itinerary={this.props.itinerary} />
-          {this.props.itineraryFromState === null ||
+          {isEmpty(this.props.itineraryFromState) ||
           this.props.itinerary._id !== this.props.itineraryFromState._id ? (
-            <button className="view-all-button" onClick={this.handleClick}>
+            <button
+              className="view-all-button"
+              onClick={this.handleClick.bind(this, "more")}
+            >
               <i className="material-icons">expand_more</i>
               <span>View All</span>
               <i className="material-icons">expand_more</i>
