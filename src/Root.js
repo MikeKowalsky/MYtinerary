@@ -12,7 +12,7 @@ import Cities from "./pages/Cities/Cities";
 import Itineraries from "./pages/Itineraries/Itineraries";
 import Login from "./pages/Login/Login";
 import SignUp from "./pages/SignUp/SignUp";
-// import SingleItinerary from "./pages/Itineraries/SingleItinerary";
+import SingleItinerary from "./pages/Itineraries/SingleItinerary";
 
 class Root extends Component {
   componentWillMount() {
@@ -46,7 +46,7 @@ class Root extends Component {
             <Route path="/city/:cityName" component={Itineraries} />
             <Route path="/login" component={Login} />
             <Route path="/signup" component={SignUp} />
-            {/* <Route path="/iterinaryDetails" component={SingleItinerary} /> */}
+            <Route path="/iterinaryDetails" component={SingleItinerary} />
           </div>
         </Router>
       </Provider>

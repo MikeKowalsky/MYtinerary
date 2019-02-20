@@ -1,0 +1,16 @@
+.message-form {
+  width: 90%;
+}
+
+.message-form-control > textarea {
+  width: 100%;
+}
+
+.message-form-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.message-form-actions > button {
+  margin-right: 0;
+}

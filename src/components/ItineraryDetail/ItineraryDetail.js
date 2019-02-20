@@ -27,9 +27,9 @@ class ItineraryDetails extends Component {
   }
 
   checkLength(index) {
-    console.log("newIndex", index);
-    const length = this.props.itinerary.images.length;
-    return index >= 0 && index < length ? true : false;
+    return index >= 0 && index < this.props.itinerary.images.length
+      ? true
+      : false;
   }
 
   loop(index) {
@@ -64,27 +64,37 @@ class ItineraryDetails extends Component {
           </div>
           <MessageFeed format="short" />
         </div>
-        <div className="section-title">
-          {/* <Link to="/iterinaryDetails">
-            <p className="extra-size">Click here formore details!</p>
-          </Link> */}
-        </div>
-        <div>
-          <button className="view-all-button" onClick={this.props.back}>
-            <i className="material-icons">expand_less</i>
-            <span>close</span>
-            <i className="material-icons">expand_less</i>
-          </button>
-        </div>
+        {this.props.multi && (
+          <React.Fragment>
+            <div className="section-title">
+              <Link to="/iterinaryDetails">
+                <p className="extra-size">Click here formore details!</p>
+              </Link>
+            </div>
+            <div>
+              <button className="view-all-button" onClick={this.props.back}>
+                <i className="material-icons">expand_less</i>
+                <span>close</span>
+                <i className="material-icons">expand_less</i>
+              </button>
+            </div>
+          </React.Fragment>
+        )}
       </React.Fragment>
     );
   }
 }
 
+ItineraryDetails.defaultProps = {
+  multi: true,
+  back: () => {}
+};
+
 ItineraryDetails.propTypes = {
   itinerary: PropTypes.object.isRequired,
   back: PropTypes.func.isRequired,
-  user: PropTypes.object.isRequired
+  user: PropTypes.object.isRequired,
+  multi: PropTypes.bool.isRequired
 };
 
 const mapStateToProps = state => ({

@@ -32,7 +32,8 @@
 }
 
 .section-title > h4 {
-  margin: 10px auto;
+  margin: 20px 0 10px 0;
+  font-size: 20px;
 }
 
 .extra-size {
