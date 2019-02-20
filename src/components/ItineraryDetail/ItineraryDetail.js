@@ -62,13 +62,17 @@ class ItineraryDetails extends Component {
               arrow_forward_ios
             </i>
           </div>
-          <MessageFeed format="short" />
+          {this.props.multi ? (
+            <MessageFeed format="short" />
+          ) : (
+            <MessageFeed format="long" />
+          )}
         </div>
         {this.props.multi && (
           <React.Fragment>
             <div className="section-title">
               <Link to="/iterinaryDetails">
-                <p className="extra-size">Click here formore details!</p>
+                <p className="extra-size">Click here for more details!</p>
               </Link>
             </div>
             <div>

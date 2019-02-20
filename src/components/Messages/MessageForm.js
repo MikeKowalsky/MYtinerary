@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import isEmpty from "../../validation/is-empty";
+import { addMessage } from "../../actions/messagesActions";
 
 import "./MessageForm.css";
 
@@ -28,6 +29,8 @@ class MessageForm extends Component {
     };
 
     console.log(newMessage);
+    this.props.addMessage(newMessage);
+    this.setState({ text: "" });
   }
 
   onChange(e) {
@@ -64,7 +67,8 @@ class MessageForm extends Component {
 
 MessageForm.propTypes = {
   itinerary: PropTypes.object.isRequired,
-  user: PropTypes.object.isRequired
+  user: PropTypes.object.isRequired,
+  addMessage: PropTypes.func.isRequired
 };
 
 const mapStateToprops = state => ({
@@ -72,4 +76,7 @@ const mapStateToprops = state => ({
   user: state.user
 });
 
-export default connect(mapStateToprops)(MessageForm);
+export default connect(
+  mapStateToprops,
+  { addMessage }
+)(MessageForm);

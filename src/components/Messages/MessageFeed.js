@@ -10,7 +10,8 @@ class MessageFeed extends Component {
     const limit = this.props.format === "short" ? 3 : "all";
     if (
       this.props.messages.length === 0 ||
-      this.props.messages[0].itineraryId !== this.props.itinerary._id
+      this.props.messages[0].itineraryId !== this.props.itinerary._id ||
+      limit === "all"
     )
       this.props.getMessagesItinerary(this.props.itinerary._id, limit);
   }
