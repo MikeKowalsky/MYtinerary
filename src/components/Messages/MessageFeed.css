@@ -1,0 +1,17 @@
+.single-msg-wrapper {
+  width: 90%;
+  margin: 5px auto;
+  padding: 5px;
+  border: 1px solid #5101d1;
+  border-radius: 5px;
+}
+
+.single-msg-wrapper > p {
+  margin: 5px 0;
+  text-align: left;
+}
+
+.single-msg-name {
+  font-size: 75%;
+  border-bottom: 1px dashed black;
+}

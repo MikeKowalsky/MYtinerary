@@ -2,9 +2,9 @@ import { GET_MESSAGES_ITINERARY } from "./types";
 import axios from "axios";
 
 // get messages for itinerary
-export const getMessagesItinerary = itineraryId => dispatch => {
+export const getMessagesItinerary = (itineraryId, limit) => dispatch => {
   axios
-    .get(`/api/messages/itinerary/${itineraryId}/3`)
+    .get(`/api/messages/itinerary/${itineraryId}/${limit}`)
     .then(res =>
       dispatch({
         type: GET_MESSAGES_ITINERARY,

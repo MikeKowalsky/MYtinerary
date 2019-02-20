@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
 import MessageFeed from "../Messages/MessageFeed";
 import "./itineraryDetail.css";
@@ -41,6 +42,9 @@ class ItineraryDetails extends Component {
     return (
       <React.Fragment>
         <div className="itinerary-detail wrapper">
+          <div className="section-title">
+            <h4>Activities</h4>
+          </div>
           <div className="imgWrapper">
             <img src={images[this.state.index].url} alt="foto" />
           </div>
@@ -59,6 +63,11 @@ class ItineraryDetails extends Component {
             </i>
           </div>
           <MessageFeed format="short" />
+        </div>
+        <div className="section-title">
+          {/* <Link to="/iterinaryDetails">
+            <p className="extra-size">Click here formore details!</p>
+          </Link> */}
         </div>
         <div>
           <button className="view-all-button" onClick={this.props.back}>
