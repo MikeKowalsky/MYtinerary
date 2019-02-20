@@ -1,0 +1,12 @@
+.single-iti-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  width: 95%;
+  margin: 20px auto;
+}
+
+.not-login-message {
+  text-align: center;
+}

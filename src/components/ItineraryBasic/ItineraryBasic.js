@@ -10,11 +10,11 @@ class ItineraryBasic extends Component {
       duration,
       priceRange,
       tags
-    } = this.props.info;
+    } = this.props.itinerary;
 
     return (
       <Fragment>
-        <div className="all-info">
+        <div className="itinerary-basic all-info">
           <dir className="iti-img">
             <img src={`http://i.pravatar.cc/300?img=2`} alt="avatar" />
             <p className="user-name">{author}</p>
@@ -39,7 +39,7 @@ class ItineraryBasic extends Component {
 }
 
 ItineraryBasic.propTypes = {
-  info: PropTypes.object.isRequired
+  itinerary: PropTypes.object.isRequired
 };
 
 export default ItineraryBasic;

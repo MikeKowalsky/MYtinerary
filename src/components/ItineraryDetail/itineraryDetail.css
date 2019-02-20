@@ -10,3 +10,39 @@
   width: 90%;
   margin: 5px;
 }
+
+.picture-control {
+  display: flex;
+  justify-content: center;
+}
+
+.picture-control i {
+  font-size: 48px;
+  width: 50%;
+  text-align: center;
+}
+
+.section-title {
+  display: block;
+  text-align: center;
+}
+
+.section-title > a {
+  text-decoration: none;
+}
+
+.section-title > h4 {
+  margin: 20px 0 10px 0;
+  font-size: 20px;
+}
+
+.extra-size {
+  font-size: 125%;
+  padding: 10px 0;
+  color: rgb(185, 15, 15);
+}
+
+textarea {
+  border: 1px solid #5101d1;
+  border-radius: 5px;
+}

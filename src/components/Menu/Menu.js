@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/userActions";
 
@@ -8,6 +8,7 @@ import "./Menu.css";
 class Menu extends Component {
   logoutUserHandler = () => {
     this.props.logoutUser();
+    this.props.history.push("/");
   };
 
   render() {
@@ -39,4 +40,4 @@ const mapStateToProps = state => ({
 export default connect(
   mapStateToProps,
   { logoutUser }
-)(Menu);
+)(withRouter(Menu));

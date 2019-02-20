@@ -12,13 +12,14 @@ import Cities from "./pages/Cities/Cities";
 import Itineraries from "./pages/Itineraries/Itineraries";
 import Login from "./pages/Login/Login";
 import SignUp from "./pages/SignUp/SignUp";
+import SingleItinerary from "./pages/Itineraries/SingleItinerary";
 
 class Root extends Component {
   componentWillMount() {
     // Check for token in localStorage
     if (localStorage.jwtItiToken) {
       // Set header for axios requests
-      setAuthToken(localStorage.jwtToken);
+      setAuthToken(localStorage.jwtItiToken);
 
       // Decode token and get user info
       const decoded = jwt_decode(localStorage.jwtItiToken);
@@ -36,8 +37,9 @@ class Root extends Component {
   }
 
   render() {
+    const { store } = this.props;
     return (
-      <Provider store={this.props.store}>
+      <Provider store={store}>
         <Router>
           <div>
             <Route exact path="/" component={App} />
@@ -45,6 +47,7 @@ class Root extends Component {
             <Route path="/city/:cityName" component={Itineraries} />
             <Route path="/login" component={Login} />
             <Route path="/signup" component={SignUp} />
+            <Route path="/iterinaryDetails" component={SingleItinerary} />
           </div>
         </Router>
       </Provider>
@@ -54,7 +57,8 @@ class Root extends Component {
 
 Root.propTypes = {
   setCurrentUser: PropTypes.func.isRequired,
-  logoutUser: PropTypes.func.isRequired
+  logoutUser: PropTypes.func.isRequired,
+  store: PropTypes.object.isRequired
 };
 
 export default connect(

@@ -1,10 +1,14 @@
 import { combineReducers } from "redux";
-import cities from "./cityReducer";
-import itineraries from "./itineraryReducer";
-import user from "./userReducer";
+import cityReducer from "./cityReducer";
+import itinerariesReducer from "./itinerariesReducer";
+import itineraryReducer from "./itineraryReducer";
+import userReducer from "./userReducer";
+import messagesReducer from "./messagesReducer";
 
 export default combineReducers({
-  cities,
-  itineraries,
-  user
+  cities: cityReducer,
+  itineraries: itinerariesReducer,
+  user: userReducer,
+  itinerary: itineraryReducer,
+  messages: messagesReducer
 });
