@@ -1,6 +1,8 @@
 import { FETCH_CITIES } from "../actions/types";
 
-export default function cityReducer(state = [], action) {
+const initialState = [];
+
+export default function cityReducer(state = initialState, action) {
   switch (action.type) {
     case FETCH_CITIES:
       return action.cities;

@@ -11,9 +11,11 @@ import rootReducer from "./reducers";
 import { fetchAllCities } from "./actions/citiesActions";
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const initialState = {};
 
 const store = createStore(
   rootReducer,
+  initialState,
   composeEnhancers(applyMiddleware(thunk))
 );
 

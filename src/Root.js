@@ -19,7 +19,7 @@ class Root extends Component {
     // Check for token in localStorage
     if (localStorage.jwtItiToken) {
       // Set header for axios requests
-      setAuthToken(localStorage.jwtToken);
+      setAuthToken(localStorage.jwtItiToken);
 
       // Decode token and get user info
       const decoded = jwt_decode(localStorage.jwtItiToken);
@@ -37,8 +37,9 @@ class Root extends Component {
   }
 
   render() {
+    const { store } = this.props;
     return (
-      <Provider store={this.props.store}>
+      <Provider store={store}>
         <Router>
           <div>
             <Route exact path="/" component={App} />
@@ -56,7 +57,8 @@ class Root extends Component {
 
 Root.propTypes = {
   setCurrentUser: PropTypes.func.isRequired,
-  logoutUser: PropTypes.func.isRequired
+  logoutUser: PropTypes.func.isRequired,
+  store: PropTypes.object.isRequired
 };
 
 export default connect(
