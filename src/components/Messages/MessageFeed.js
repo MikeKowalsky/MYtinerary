@@ -13,21 +13,12 @@ class MessageFeed extends Component {
   }
 
   render() {
-    this.props.messages.sort(
-      (a, b) => new Date(b.timeStamp) - new Date(a.timeStamp)
-    );
-
-    let messagesToShow;
-    this.props.format === "short"
-      ? (messagesToShow = this.props.messages.slice(0, 3))
-      : (messagesToShow = this.props.messages);
-
     return (
       <div>
         <div style={{ display: "block", textAlign: "center" }}>
           <h4>Messages</h4>
           <div>
-            {messagesToShow.map(message => (
+            {this.props.messages.map(message => (
               <div key={message._id}>
                 <h5>{message.name}</h5>
                 <p>{message.text}</p>

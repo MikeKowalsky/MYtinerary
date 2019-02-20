@@ -4,7 +4,7 @@ import axios from "axios";
 // get messages for itinerary
 export const getMessagesItinerary = itineraryId => dispatch => {
   axios
-    .get(`/api/messages/itinerary/${itineraryId}`)
+    .get(`/api/messages/itinerary/${itineraryId}/3`)
     .then(res =>
       dispatch({
         type: GET_MESSAGES_ITINERARY,
