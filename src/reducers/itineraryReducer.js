@@ -1,9 +1,9 @@
-import { FETCH_ITINERARIES } from "../actions/types";
+import { SET_CURRENT_ITINERARY } from "../actions/types";
 
-export default function itineraryReducer(state = [], action) {
+export default function itinerariesReducer(state = null, action) {
   switch (action.type) {
-    case FETCH_ITINERARIES:
-      return action.itineraries;
+    case SET_CURRENT_ITINERARY:
+      return action.payload;
     default:
       return state;
   }
