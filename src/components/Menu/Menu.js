@@ -16,7 +16,12 @@ class Menu extends Component {
       <div className="outerWrapper">
         <div className="innerWrapper">
           {this.props.isAuthenticated ? (
-            <button onClick={this.logoutUserHandler}>Logout</button>
+            <React.Fragment>
+              <Link to="/profile">
+                <p>Profile</p>
+              </Link>
+              <button onClick={this.logoutUserHandler}>Logout</button>
+            </React.Fragment>
           ) : (
             <React.Fragment>
               <Link to="/login">
