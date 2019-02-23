@@ -1,7 +1,7 @@
 import axios from "axios";
 import jwt_decode from "jwt-decode";
 
-import { SET_CURRENT_USER } from "./types";
+import { SET_CURRENT_USER, GET_USER_DETAILS } from "./types";
 import setAuthToken from "../utils/setAuthToken";
 
 // Register new user
@@ -51,4 +51,17 @@ export const setCurrentUser = payload => {
     type: SET_CURRENT_USER,
     payload
   };
+};
+
+// get user details
+export const getUserDetails = () => dispatch => {
+  axios
+    .get("/api/users")
+    .then(profile =>
+      dispatch({
+        type: GET_USER_DETAILS,
+        payload: profile.data
+      })
+    )
+    .catch(err => console.log(err.response.data.error));
 };
