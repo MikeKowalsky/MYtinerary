@@ -1,4 +1,4 @@
-import { GET_MESSAGES_ITINERARY, ADD_MESSAGE } from "./types";
+import { GET_MESSAGES_ITINERARY, ADD_MESSAGE, REMOVE_MESSAGE } from "./types";
 import axios from "axios";
 
 // get messages for itinerary
@@ -22,6 +22,19 @@ export const addMessage = messageData => dispatch => {
       dispatch({
         type: ADD_MESSAGE,
         payload: res.data
+      })
+    )
+    .catch(err => console.log(err));
+};
+
+// delete message
+export const removeMessage = messageId => dispatch => {
+  axios
+    .delete(`/api/messages/${messageId}`)
+    .then(res =>
+      dispatch({
+        type: REMOVE_MESSAGE,
+        payload: messageId
       })
     )
     .catch(err => console.log(err));
