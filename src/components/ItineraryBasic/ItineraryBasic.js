@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 class ItineraryBasic extends Component {
   render() {
     const {
-      author,
+      user,
       name,
       rating,
       duration,
@@ -16,8 +16,8 @@ class ItineraryBasic extends Component {
       <Fragment>
         <div className="itinerary-basic all-info">
           <dir className="iti-img">
-            <img src={`http://i.pravatar.cc/300?img=2`} alt="avatar" />
-            <p className="user-name">{author}</p>
+            <img src={user.avatar} alt="avatar" />
+            <p className="user-name">{user.name}</p>
           </dir>
           <div className="text-info">
             <p>{name}</p>
