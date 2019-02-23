@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
 import isEmpty from "../../validation/is-empty";
+import { getItineraryById } from "../../actions/itineraryActions";
 
 import Header from "../../components/Header/Header";
 import ItineraryBasic from "../../components/ItineraryBasic/ItineraryBasic";
@@ -11,6 +12,12 @@ import MessageForm from "../../components/Messages/MessageForm";
 import "./SingleItinerary.css";
 
 class SingleItinerary extends Component {
+  componentDidMount() {
+    if (isEmpty(this.props.itinerary)) {
+      this.props.getItineraryById("5c339aa0bd92104287b0e9ca");
+    }
+  }
+
   render() {
     return (
       <React.Fragment>
@@ -20,7 +27,7 @@ class SingleItinerary extends Component {
             <ItineraryBasic itinerary={this.props.itinerary} />
             <ItineraryDetails multi={false} />
             {this.props.user.isAuthenticated ? (
-              <MessageForm />
+              <MessageForm format="long" />
             ) : (
               <p className="not-login-message">
                 You need to be login to add messages!
@@ -29,8 +36,7 @@ class SingleItinerary extends Component {
           </div>
         ) : (
           <div className="single-iti-wrapper">
-            <p>Something went wrong ...</p>
-            <p>Go back and try again.</p>
+            <p>Loading ...</p>
           </div>
         )}
       </React.Fragment>
@@ -40,7 +46,8 @@ class SingleItinerary extends Component {
 
 SingleItinerary.propTypes = {
   itinerary: PropTypes.object.isRequired,
-  user: PropTypes.object.isRequired
+  user: PropTypes.object.isRequired,
+  getItineraryById: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
@@ -48,4 +55,7 @@ const mapStateToProps = state => ({
   user: state.user
 });
 
-export default connect(mapStateToProps)(withRouter(SingleItinerary));
+export default connect(
+  mapStateToProps,
+  { getItineraryById }
+)(withRouter(SingleItinerary));

@@ -6,12 +6,27 @@
   border-radius: 5px;
 }
 
-.single-msg-wrapper > p {
+.single-msg-wrapper p {
   margin: 5px 0;
   text-align: left;
 }
 
 .single-msg-name {
   font-size: 75%;
+}
+
+.name-date-wrapper {
   border-bottom: 1px dashed black;
+  display: flex;
+  justify-content: space-around;
+}
+
+.name-date-wrapper i {
+  font-size: 18px;
+  color: red;
+}
+
+.bigRemoveIcon i {
+  font-size: 24px;
+  font-weight: bold;
 }

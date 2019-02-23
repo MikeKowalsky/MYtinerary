@@ -28,7 +28,6 @@ class MessageForm extends Component {
       itineraryId: itinerary._id
     };
 
-    console.log(newMessage);
     this.props.addMessage(newMessage);
     this.setState({ text: "" });
   }
