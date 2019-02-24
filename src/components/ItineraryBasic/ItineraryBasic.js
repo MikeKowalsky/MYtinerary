@@ -2,7 +2,11 @@ import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
-import { getUserFavorites } from "../../actions/userActions";
+import {
+  getUserFavorites,
+  addToFavorites,
+  removeFromFavorites
+} from "../../actions/userActions";
 
 class ItineraryBasic extends Component {
   // this is not idea solution, it's called so many times
@@ -15,8 +19,14 @@ class ItineraryBasic extends Component {
       this.props.getUserFavorites();
   }
 
-  removeFavoriteClickHandler() {}
-  addFavoriteClickHandler() {}
+  addFavoriteClickHandler = () => {
+    console.log(this.props.itinerary._id);
+    this.props.addToFavorites(this.props.itinerary._id);
+  };
+  removeFavoriteClickHandler = () => {
+    console.log(this.props.itinerary._id);
+    this.props.removeFromFavorites(this.props.itinerary._id);
+  };
 
   render() {
     const {
@@ -30,9 +40,7 @@ class ItineraryBasic extends Component {
 
     let favIco = null;
     if (this.props.user.isAuthenticated) {
-      favIco = this.props.favorites
-        .map(e => e._id)
-        .includes(this.props.itinerary._id) ? (
+      favIco = this.props.favorites.includes(this.props.itinerary._id) ? (
         <i className="material-icons" onClick={this.removeFavoriteClickHandler}>
           favorite
         </i>
@@ -80,6 +88,8 @@ ItineraryBasic.propTypes = {
   itinerary: PropTypes.object.isRequired,
   user: PropTypes.object.isRequired,
   getUserFavorites: PropTypes.func.isRequired,
+  addToFavorites: PropTypes.func.isRequired,
+  removeFromFavorites: PropTypes.func.isRequired,
   favorites: PropTypes.array.isRequired
 };
 
@@ -90,5 +100,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { getUserFavorites }
+  { getUserFavorites, addToFavorites, removeFromFavorites }
 )(ItineraryBasic);
