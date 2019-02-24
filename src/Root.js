@@ -13,6 +13,7 @@ import Itineraries from "./pages/Itineraries/Itineraries";
 import Login from "./pages/Login/Login";
 import SignUp from "./pages/SignUp/SignUp";
 import SingleItinerary from "./pages/Itineraries/SingleItinerary";
+import Profile from "./pages/Profile/Profile";
 
 class Root extends Component {
   componentWillMount() {
@@ -48,6 +49,7 @@ class Root extends Component {
             <Route path="/login" component={Login} />
             <Route path="/signup" component={SignUp} />
             <Route path="/iterinaryDetails" component={SingleItinerary} />
+            <Route path="/profile" component={Profile} />
           </div>
         </Router>
       </Provider>
