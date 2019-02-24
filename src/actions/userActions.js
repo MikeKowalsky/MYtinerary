@@ -1,10 +1,12 @@
 import axios from "axios";
 import jwt_decode from "jwt-decode";
-
+import isEmpty from "../validation/is-empty";
 import {
   SET_CURRENT_USER,
   GET_USER_DETAILS,
-  GET_USER_FAVORITES
+  GET_USER_FAVORITES,
+  ADD_FAVORITES,
+  REMOVE_FAVORITES
 } from "./types";
 import setAuthToken from "../utils/setAuthToken";
 
@@ -77,8 +79,34 @@ export const getUserFavorites = () => dispatch => {
     .then(profile =>
       dispatch({
         type: GET_USER_FAVORITES,
-        payload: profile.data
+        payload: isEmpty(profile.data) ? [] : profile.data
       })
     )
+    .catch(err => console.log(err.response.data.error));
+};
+
+// add favorites
+export const addToFavorites = itineraryId => dispatch => {
+  axios
+    .post("/api/itineraries/addToFav", { id: itineraryId })
+    .then(favList => {
+      return dispatch({
+        type: ADD_FAVORITES,
+        payload: favList.data
+      });
+    })
+    .catch(err => console.log(err.response.data.error));
+};
+
+// remove favorites
+export const removeFromFavorites = itineraryId => dispatch => {
+  axios
+    .post("/api/itineraries/removeFromFav", { id: itineraryId })
+    .then(favList => {
+      return dispatch({
+        type: REMOVE_FAVORITES,
+        payload: favList.data
+      });
+    })
     .catch(err => console.log(err.response.data.error));
 };

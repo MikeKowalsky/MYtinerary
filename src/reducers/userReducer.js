@@ -1,7 +1,9 @@
 import {
   SET_CURRENT_USER,
   GET_USER_DETAILS,
-  GET_USER_FAVORITES
+  GET_USER_FAVORITES,
+  ADD_FAVORITES,
+  REMOVE_FAVORITES
 } from "../actions/types";
 import isEmpty from "../validation/is-empty";
 
@@ -26,7 +28,17 @@ export default function(state = initialState, action) {
     case GET_USER_FAVORITES:
       return {
         ...state,
-        favorites: action.payload
+        favorites: action.payload.map(fav => fav._id)
+      };
+    case ADD_FAVORITES:
+      return {
+        ...state,
+        favorites: action.payload.map(e => e._id)
+      };
+    case REMOVE_FAVORITES:
+      return {
+        ...state,
+        favorites: action.payload.map(e => e._id)
       };
     default:
       return state;
