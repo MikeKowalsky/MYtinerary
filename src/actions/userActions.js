@@ -1,7 +1,11 @@
 import axios from "axios";
 import jwt_decode from "jwt-decode";
 
-import { SET_CURRENT_USER, GET_USER_DETAILS } from "./types";
+import {
+  SET_CURRENT_USER,
+  GET_USER_DETAILS,
+  GET_USER_FAVORITES
+} from "./types";
 import setAuthToken from "../utils/setAuthToken";
 
 // Register new user
@@ -60,6 +64,19 @@ export const getUserDetails = () => dispatch => {
     .then(profile =>
       dispatch({
         type: GET_USER_DETAILS,
+        payload: profile.data
+      })
+    )
+    .catch(err => console.log(err.response.data.error));
+};
+
+// get user favorites
+export const getUserFavorites = () => dispatch => {
+  axios
+    .get("/api/users/favorites")
+    .then(profile =>
+      dispatch({
+        type: GET_USER_FAVORITES,
         payload: profile.data
       })
     )
