@@ -3,6 +3,7 @@ export const FETCH_CITIES = "FETCH_CITIES";
 
 // itinersries
 export const FETCH_ITINERARIES = "FETCH_ININERARIES";
+export const SAVE_NEW_ITINERARY = "SAVE_NEW_ITINERARY";
 
 // user
 export const SET_CURRENT_USER = "SET_CURRENT_USER";
