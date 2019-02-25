@@ -65,6 +65,14 @@
   margin-bottom: 1rem;
 }
 
+.selectBlock {
+  display: flex;
+}
+
+.selectBlock select {
+  border: 1px solid #5101d1;
+}
+
 .form-actions button {
   background: #5101d1;
   font: inherit;

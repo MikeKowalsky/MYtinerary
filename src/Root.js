@@ -10,9 +10,10 @@ import { setCurrentUser, logoutUser } from "./actions/userActions";
 import App from "./App";
 import Cities from "./pages/Cities/Cities";
 import Itineraries from "./pages/Itineraries/Itineraries";
+import SingleItinerary from "./pages/Itineraries/SingleItinerary";
+import NewItinerary from "./pages/Itineraries/NewItinerary";
 import Login from "./pages/Login/Login";
 import SignUp from "./pages/SignUp/SignUp";
-import SingleItinerary from "./pages/Itineraries/SingleItinerary";
 import Profile from "./pages/Profile/Profile";
 
 class Root extends Component {
@@ -46,9 +47,10 @@ class Root extends Component {
             <Route exact path="/" component={App} />
             <Route path="/cities" component={Cities} />
             <Route path="/city/:cityName" component={Itineraries} />
+            <Route path="/iterinaryDetails" component={SingleItinerary} />
+            <Route path="/newIterinary" component={NewItinerary} />
             <Route path="/login" component={Login} />
             <Route path="/signup" component={SignUp} />
-            <Route path="/iterinaryDetails" component={SingleItinerary} />
             <Route path="/profile" component={Profile} />
           </div>
         </Router>
