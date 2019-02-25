@@ -54,6 +54,10 @@
   margin-bottom: 1rem;
 }
 
+.form-control input:focus {
+  border-bottom: 3px solid #e0d31f;
+}
+
 .form-control label,
 .form-control input {
   width: 100%;

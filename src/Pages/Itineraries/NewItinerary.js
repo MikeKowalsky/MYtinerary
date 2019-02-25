@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 
 import { saveNewItinerary } from "../../actions/itinerariesActions";
 import Header from "../../components/Header/Header";
+import "./NewItinerary.css";
 
 class NewItinerary extends Component {
   constructor() {
@@ -15,10 +16,20 @@ class NewItinerary extends Component {
     this.cityEl = React.createRef();
     this.img1NameEl = React.createRef();
     this.img1UrlEl = React.createRef();
-    // this.img2NameEl = React.createRef();
-    // this.img2UrlEl = React.createRef();
-    // this.img3NameEl = React.createRef();
-    // this.img3UrlEl = React.createRef();
+    this.img2NameEl = React.createRef();
+    this.img2UrlEl = React.createRef();
+    this.img3NameEl = React.createRef();
+    this.img3UrlEl = React.createRef();
+    this.img4NameEl = React.createRef();
+    this.img4UrlEl = React.createRef();
+    this.img5NameEl = React.createRef();
+    this.img5UrlEl = React.createRef();
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.itineraries) {
+      this.props.history.push("/cities");
+    }
   }
 
   submitHandler = event => {
@@ -36,11 +47,32 @@ class NewItinerary extends Component {
     }
 
     const imageArr = [];
-    const image = {
-      name: `${this.imgNameEl.current.value}`,
-      url: `${this.imgUrlEl.current.value}`
+    const image1 = {
+      name: `${this.img1NameEl.current.value}`,
+      url: `${this.img1UrlEl.current.value}`
     };
-    imageArr.push(image);
+    if (this.img1UrlEl.current.value !== "") imageArr.push(image1);
+    const image2 = {
+      name: `${this.img2NameEl.current.value}`,
+      url: `${this.img2UrlEl.current.value}`
+    };
+    if (this.img2UrlEl.current.value !== "") imageArr.push(image2);
+
+    const image3 = {
+      name: `${this.img3NameEl.current.value}`,
+      url: `${this.img3UrlEl.current.value}`
+    };
+    if (this.img3UrlEl.current.value !== "") imageArr.push(image3);
+    const image4 = {
+      name: `${this.img4NameEl.current.value}`,
+      url: `${this.img4UrlEl.current.value}`
+    };
+    if (this.img4UrlEl.current.value !== "") imageArr.push(image4);
+    const image5 = {
+      name: `${this.img5NameEl.current.value}`,
+      url: `${this.img5UrlEl.current.value}`
+    };
+    if (this.img5UrlEl.current.value !== "") imageArr.push(image5);
     const images = JSON.stringify(imageArr);
 
     const newItinerary = {
@@ -109,7 +141,7 @@ class NewItinerary extends Component {
                   ))}
                 </select>
               </div>
-              <div className="form-control">
+              <div className="form-control frame">
                 <label htmlFor="imgName">Activity no 1 name:</label>
                 <input
                   type="text"
@@ -127,7 +159,7 @@ class NewItinerary extends Component {
                   maxLength="60"
                 />
               </div>
-              {/* <div className="form-control">
+              <div className="form-control frame">
                 <label htmlFor="imgName">Activity no 2 name:</label>
                 <input
                   type="text"
@@ -145,7 +177,7 @@ class NewItinerary extends Component {
                   maxLength="60"
                 />
               </div>
-              <div className="form-control">
+              <div className="form-control frame">
                 <label htmlFor="imgName">Activity no 3 name:</label>
                 <input
                   type="text"
@@ -162,7 +194,43 @@ class NewItinerary extends Component {
                   minLength="3"
                   maxLength="60"
                 />
-              </div> */}
+              </div>
+              <div className="form-control frame">
+                <label htmlFor="imgName">Activity no 4 name:</label>
+                <input
+                  type="text"
+                  id="imgName"
+                  ref={this.img4NameEl}
+                  minLength="3"
+                  maxLength="20"
+                />
+                <label htmlFor="imgUrl">Activity no 4 url:</label>
+                <input
+                  type="text"
+                  id="imgUrl"
+                  ref={this.img4UrlEl}
+                  minLength="3"
+                  maxLength="60"
+                />
+              </div>
+              <div className="form-control frame">
+                <label htmlFor="imgName">Activity no 5 name:</label>
+                <input
+                  type="text"
+                  id="imgName"
+                  ref={this.img5NameEl}
+                  minLength="3"
+                  maxLength="20"
+                />
+                <label htmlFor="imgUrl">Activity no 5 url:</label>
+                <input
+                  type="text"
+                  id="imgUrl"
+                  ref={this.img5UrlEl}
+                  minLength="3"
+                  maxLength="60"
+                />
+              </div>
               <div className="form-actions">
                 <button type="submit">Create!</button>
               </div>
@@ -180,7 +248,8 @@ NewItinerary.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  cities: state.cities
+  cities: state.cities,
+  itineraries: state.itineraries
 });
 
 export default connect(
