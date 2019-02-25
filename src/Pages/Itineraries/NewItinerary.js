@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
+import { saveNewItinerary } from "../../actions/itinerariesActions";
 import Header from "../../components/Header/Header";
 
 class NewItinerary extends Component {
@@ -12,8 +13,12 @@ class NewItinerary extends Component {
     this.priceEl = React.createRef();
     this.tagsEl = React.createRef();
     this.cityEl = React.createRef();
-    this.imgNameEl = React.createRef();
-    this.imgUrlEl = React.createRef();
+    this.img1NameEl = React.createRef();
+    this.img1UrlEl = React.createRef();
+    // this.img2NameEl = React.createRef();
+    // this.img2UrlEl = React.createRef();
+    // this.img3NameEl = React.createRef();
+    // this.img3UrlEl = React.createRef();
   }
 
   submitHandler = event => {
@@ -30,9 +35,13 @@ class NewItinerary extends Component {
       }
     }
 
-    const images = `[{"name":${this.imgNameEl.current.value}, "url":${
-      this.imgUrlEl.current.value
-    }}]`;
+    const imageArr = [];
+    const image = {
+      name: `${this.imgNameEl.current.value}`,
+      url: `${this.imgUrlEl.current.value}`
+    };
+    imageArr.push(image);
+    const images = JSON.stringify(imageArr);
 
     const newItinerary = {
       name: this.nameEl.current.value,
@@ -44,6 +53,8 @@ class NewItinerary extends Component {
     };
 
     console.log(newItinerary);
+
+    this.props.saveNewItinerary(newItinerary);
   };
 
   render() {
@@ -99,23 +110,59 @@ class NewItinerary extends Component {
                 </select>
               </div>
               <div className="form-control">
-                <label htmlFor="imgName">Activity name:</label>
+                <label htmlFor="imgName">Activity no 1 name:</label>
                 <input
                   type="text"
                   id="imgName"
-                  ref={this.imgNameEl}
+                  ref={this.img1NameEl}
                   minLength="3"
                   maxLength="20"
                 />
-                <label htmlFor="imgUrl">URL:</label>
+                <label htmlFor="imgUrl">Activity no 1 url:</label>
                 <input
                   type="text"
                   id="imgUrl"
-                  ref={this.imgUrlEl}
+                  ref={this.img1UrlEl}
                   minLength="3"
-                  maxLength="50"
+                  maxLength="60"
                 />
               </div>
+              {/* <div className="form-control">
+                <label htmlFor="imgName">Activity no 2 name:</label>
+                <input
+                  type="text"
+                  id="imgName"
+                  ref={this.img2NameEl}
+                  minLength="3"
+                  maxLength="20"
+                />
+                <label htmlFor="imgUrl">Activity no 2 url:</label>
+                <input
+                  type="text"
+                  id="imgUrl"
+                  ref={this.img2UrlEl}
+                  minLength="3"
+                  maxLength="60"
+                />
+              </div>
+              <div className="form-control">
+                <label htmlFor="imgName">Activity no 3 name:</label>
+                <input
+                  type="text"
+                  id="imgName"
+                  ref={this.img3NameEl}
+                  minLength="3"
+                  maxLength="20"
+                />
+                <label htmlFor="imgUrl">Activity no 3 url:</label>
+                <input
+                  type="text"
+                  id="imgUrl"
+                  ref={this.img3UrlEl}
+                  minLength="3"
+                  maxLength="60"
+                />
+              </div> */}
               <div className="form-actions">
                 <button type="submit">Create!</button>
               </div>
@@ -128,11 +175,15 @@ class NewItinerary extends Component {
 }
 
 NewItinerary.propTypes = {
-  cities: PropTypes.array.isRequired
+  cities: PropTypes.array.isRequired,
+  saveNewItinerary: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
   cities: state.cities
 });
 
-export default connect(mapStateToProps)(NewItinerary);
+export default connect(
+  mapStateToProps,
+  { saveNewItinerary }
+)(NewItinerary);
