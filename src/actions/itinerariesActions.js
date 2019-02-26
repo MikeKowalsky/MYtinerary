@@ -1,4 +1,4 @@
-import { FETCH_ITINERARIES } from "./types";
+import { FETCH_ITINERARIES, SAVE_NEW_ITINERARY } from "./types";
 import axios from "axios";
 
 export const fetchItineraries = itineraries => {
@@ -21,4 +21,19 @@ export const fetchIterinariesForOneCity = props => {
         throw error;
       });
   };
+};
+
+export const saveNewItinerary = itineraryData => dispatch => {
+  axios
+    .post("api/itineraries", itineraryData)
+    .then(response => {
+      console.log(response.data);
+      return dispatch({
+        type: SAVE_NEW_ITINERARY,
+        payload: response.data
+      });
+    })
+    .catch(err => {
+      throw err;
+    });
 };

@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
 
 import logo from "./assets/MYtineraryLogo.png";
 import arrow from "./assets/circled-right-2.png";
@@ -8,6 +10,8 @@ import "./App.css";
 import Header from "./components/Header/Header";
 
 class App extends Component {
+  createNewItineraryHandler = () => {};
+
   render() {
     return (
       <React.Fragment>
@@ -23,7 +27,15 @@ class App extends Component {
           </Link>
           <div className="App-call-to-action">
             <p>Want to build your own MYtinerary?</p>
-            <p>Join us!</p>
+            {this.props.user.isAuthenticated ? (
+              <Link to="/newIterinary">
+                <p>Click here to create!</p>
+              </Link>
+            ) : (
+              <Link to="/login">
+                <p>Please - click here to login!</p>
+              </Link>
+            )}
           </div>
         </div>
       </React.Fragment>
@@ -31,4 +43,12 @@ class App extends Component {
   }
 }
 
-export default App;
+App.propTypes = {
+  user: PropTypes.object.isRequired
+};
+
+const mapStateToProps = state => ({
+  user: state.user
+});
+
+export default connect(mapStateToProps)(App);

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { withRouter } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import isEmpty from "../../validation/is-empty";
 import { loginUser } from "../../actions/userActions";
@@ -55,6 +55,11 @@ class Login extends Component {
             <button type="submit">Submit</button>
           </div>
         </form>
+
+        <div className="link-to-signup">
+          <p>You don't have an account?</p>
+          <Link to="/signup">Create it here!</Link>
+        </div>
 
         <BackButton />
       </div>
