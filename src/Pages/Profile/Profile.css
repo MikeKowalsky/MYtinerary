@@ -9,6 +9,11 @@
   display: flex;
 }
 
+.profile-iti-wrapper a {
+  text-decoration: none;
+  color: black;
+}
+
 .profile-iti-wrapper p {
   margin: 5px 0;
 }
