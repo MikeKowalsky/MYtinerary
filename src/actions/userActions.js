@@ -6,7 +6,8 @@ import {
   GET_USER_DETAILS,
   GET_USER_FAVORITES,
   ADD_FAVORITES,
-  REMOVE_FAVORITES
+  REMOVE_FAVORITES,
+  GET_USER_ITINERARIES
 } from "./types";
 import setAuthToken from "../utils/setAuthToken";
 
@@ -88,25 +89,38 @@ export const getUserFavorites = () => dispatch => {
 // add favorites
 export const addToFavorites = itineraryId => dispatch => {
   axios
-    .post("/api/itineraries/addToFav", { id: itineraryId })
-    .then(favList => {
-      return dispatch({
+    .post("/api/users/addToFav", { id: itineraryId })
+    .then(favList =>
+      dispatch({
         type: ADD_FAVORITES,
         payload: favList.data
-      });
-    })
+      })
+    )
     .catch(err => console.log(err.response.data.error));
 };
 
 // remove favorites
 export const removeFromFavorites = itineraryId => dispatch => {
   axios
-    .post("/api/itineraries/removeFromFav", { id: itineraryId })
-    .then(favList => {
-      return dispatch({
+    .post("/api/users/removeFromFav", { id: itineraryId })
+    .then(favList =>
+      dispatch({
         type: REMOVE_FAVORITES,
         payload: favList.data
-      });
-    })
+      })
+    )
+    .catch(err => console.log(err.response.data.error));
+};
+
+// get user's itineraries
+export const getUserItineraries = () => dispatch => {
+  axios
+    .get("/api/itineraries/user/list")
+    .then(itineraryList =>
+      dispatch({
+        type: GET_USER_ITINERARIES,
+        payload: itineraryList.data
+      })
+    )
     .catch(err => console.log(err.response.data.error));
 };

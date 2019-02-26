@@ -15,6 +15,7 @@ class SignUp extends Component {
     this.emailEl = React.createRef();
     this.passwordEl = React.createRef();
     this.password2El = React.createRef();
+    this.avatarEl = React.createRef();
   }
 
   // if user isAuth then redirect to main
@@ -30,6 +31,7 @@ class SignUp extends Component {
     const email = this.emailEl.current.value;
     const password = this.passwordEl.current.value;
     const password2 = this.password2El.current.value;
+    let avatar = this.avatarEl.current.value;
 
     // Super simple validation
     if (
@@ -43,10 +45,15 @@ class SignUp extends Component {
     if (password !== password2)
       return alert("Password confirmation incorrect!");
 
+    if (isEmpty(avatar))
+      avatar =
+        "https://education.fsu.edu/wp-content/uploads/2016/09/staff-avatar-man.png";
+
     const newUser = {
       name,
       email,
-      password
+      password,
+      avatar
     };
 
     this.props.registerUser(newUser, this.props.history);
@@ -72,6 +79,12 @@ class SignUp extends Component {
           <div className="form-control">
             <label htmlFor="password2">Password - please confirm</label>
             <input type="password" id="password2" ref={this.password2El} />
+          </div>
+          <div className="form-control">
+            <label htmlFor="avatar">
+              Avatar picture - please add hiperlink (optional)
+            </label>
+            <input type="text" id="avatar" ref={this.avatarEl} />
           </div>
           <div className="form-actions">
             <button type="submit">Submit</button>
