@@ -1,10 +1,20 @@
 .profile-wrapper {
   display: flex;
   flex-direction: column;
-  align-content: center;
-  justify-content: center;
   width: 95%;
   margin: 20px auto;
+}
+
+.profile-iti-wrapper {
+  display: flex;
+}
+
+.profile-iti-wrapper p {
+  margin: 5px 0;
+}
+
+.profile-iti-wrapper p:nth-child(2) {
+  margin: 5px 10px;
 }
 
 .name-img {

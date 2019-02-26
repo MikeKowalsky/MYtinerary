@@ -88,7 +88,7 @@ export const getUserFavorites = () => dispatch => {
 // add favorites
 export const addToFavorites = itineraryId => dispatch => {
   axios
-    .post("/api/itineraries/addToFav", { id: itineraryId })
+    .post("/api/users/addToFav", { id: itineraryId })
     .then(favList => {
       return dispatch({
         type: ADD_FAVORITES,
@@ -101,7 +101,7 @@ export const addToFavorites = itineraryId => dispatch => {
 // remove favorites
 export const removeFromFavorites = itineraryId => dispatch => {
   axios
-    .post("/api/itineraries/removeFromFav", { id: itineraryId })
+    .post("/api/users/removeFromFav", { id: itineraryId })
     .then(favList => {
       return dispatch({
         type: REMOVE_FAVORITES,

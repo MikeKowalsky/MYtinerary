@@ -28,17 +28,17 @@ export default function(state = initialState, action) {
     case GET_USER_FAVORITES:
       return {
         ...state,
-        favorites: action.payload.map(fav => fav._id)
+        favorites: action.payload.map(fav => fav.itineraryId)
       };
     case ADD_FAVORITES:
       return {
         ...state,
-        favorites: action.payload.map(e => e._id)
+        favorites: action.payload.map(e => e.itineraryId)
       };
     case REMOVE_FAVORITES:
       return {
         ...state,
-        favorites: action.payload.map(e => e._id)
+        favorites: action.payload.map(e => e.itineraryId)
       };
     default:
       return state;

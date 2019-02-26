@@ -20,11 +20,11 @@ class ItineraryBasic extends Component {
   }
 
   addFavoriteClickHandler = () => {
-    console.log(this.props.itinerary._id);
+    console.log("itiID", this.props.itinerary._id);
     this.props.addToFavorites(this.props.itinerary._id);
   };
   removeFavoriteClickHandler = () => {
-    console.log(this.props.itinerary._id);
+    console.log("itiID", this.props.itinerary._id);
     this.props.removeFromFavorites(this.props.itinerary._id);
   };
 

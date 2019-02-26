@@ -13,7 +13,7 @@ class Profile extends Component {
   }
 
   render() {
-    const { user, details } = this.props;
+    const { user, details, cities } = this.props;
 
     return (
       <React.Fragment>
@@ -35,7 +35,11 @@ class Profile extends Component {
               <div>
                 <p>Favorite Itineraries:</p>
                 {details.favoriteItis.map(iti => (
-                  <p key={iti._id}> -> {iti._id}</p>
+                  <div key={iti._id} className="profile-iti-wrapper">
+                    <p> -> {iti.name}</p>
+                    <p> {cities.find(city => city._id === iti.cityId).name}</p>
+                    <p>({iti.itineraryId})</p>
+                  </div>
                 ))}
               </div>
             </React.Fragment>
@@ -53,12 +57,14 @@ Profile.defaultProps = {
 Profile.propTypes = {
   user: PropTypes.object.isRequired,
   details: PropTypes.object.isRequired,
+  cities: PropTypes.array.isRequired,
   getUserDetails: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
   user: state.user.user,
-  details: state.user.details
+  details: state.user.details,
+  cities: state.cities
 });
 
 export default connect(
