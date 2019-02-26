@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-
+import isEmpty from "../../validation/is-empty";
 import {
   getUserFavorites,
   addToFavorites,
@@ -15,7 +15,7 @@ class ItineraryBasic extends Component {
   // in signle details i will have no favorites
   // maybe go back to token ???
   componentDidMount() {
-    if (this.props.user.isAuthenticated && !this.props.user.favorites)
+    if (this.props.user.isAuthenticated && isEmpty(this.props.user.favorites))
       this.props.getUserFavorites();
   }
 
@@ -79,10 +79,6 @@ class ItineraryBasic extends Component {
     );
   }
 }
-
-ItineraryBasic.defaultProps = {
-  favorites: []
-};
 
 ItineraryBasic.propTypes = {
   itinerary: PropTypes.object.isRequired,

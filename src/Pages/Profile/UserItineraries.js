@@ -2,27 +2,28 @@ import React from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
-const FavoriteItinerary = ({ details, cities }) => {
+const UserItinerary = ({ userName, list, cities }) => {
   return (
     <div>
-      <p>Favorite Itineraries:</p>
-      {console.log(details)}
-      {details.favoriteItis.map(iti => (
+      <p>{userName}'s Itineraries:</p>
+      {console.log(list)}
+      {list.map(iti => (
         <div key={iti._id} className="profile-iti-wrapper">
           <Link to={`/iterinaryDetails/${iti.itineraryId}`}>
             <p> -> {iti.name}</p>
           </Link>
-          <p> {cities.find(city => city._id === iti.cityId).name}</p>
-          <p>({iti.itineraryId})</p>
+          <p> {cities.find(city => city._id === iti.city).name}</p>
+          <p>({iti._id})</p>
         </div>
       ))}
     </div>
   );
 };
 
-FavoriteItinerary.propTypes = {
+UserItinerary.propTypes = {
+  userName: PropTypes.string.isRequired,
   cities: PropTypes.array.isRequired,
-  details: PropTypes.object.isRequired
+  list: PropTypes.array.isRequired
 };
 
-export default FavoriteItinerary;
+export default UserItinerary;
