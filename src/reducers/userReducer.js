@@ -3,13 +3,17 @@ import {
   GET_USER_DETAILS,
   GET_USER_FAVORITES,
   ADD_FAVORITES,
-  REMOVE_FAVORITES
+  REMOVE_FAVORITES,
+  GET_USER_ITINERARIES
 } from "../actions/types";
 import isEmpty from "../validation/is-empty";
 
 const initialState = {
   isAuthenticated: false,
-  user: {}
+  user: {},
+  details: {},
+  favorites: [],
+  userItineraries: []
 };
 
 export default function(state = initialState, action) {
@@ -39,6 +43,11 @@ export default function(state = initialState, action) {
       return {
         ...state,
         favorites: action.payload.map(e => e.itineraryId)
+      };
+    case GET_USER_ITINERARIES:
+      return {
+        ...state,
+        userItineraries: action.payload
       };
     default:
       return state;
