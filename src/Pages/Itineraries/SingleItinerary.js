@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
 import isEmpty from "../../validation/is-empty";
-import { getItineraryById } from "../../actions/itineraryActions";
+import { getItineraryById, setItinerary } from "../../actions/itineraryActions";
 
 import Header from "../../components/Header/Header";
 import ItineraryBasic from "../../components/ItineraryBasic/ItineraryBasic";
@@ -13,8 +13,12 @@ import "./SingleItinerary.css";
 
 class SingleItinerary extends Component {
   componentDidMount() {
-    if (isEmpty(this.props.itinerary)) {
-      this.props.getItineraryById("5c339aa0bd92104287b0e9ca");
+    if (
+      isEmpty(this.props.itinerary) ||
+      this.props.match.params.id !== this.props.itinerary._id.toString()
+    ) {
+      this.props.setItinerary({});
+      this.props.getItineraryById(this.props.match.params.id);
     }
   }
 
@@ -47,7 +51,8 @@ class SingleItinerary extends Component {
 SingleItinerary.propTypes = {
   itinerary: PropTypes.object.isRequired,
   user: PropTypes.object.isRequired,
-  getItineraryById: PropTypes.func.isRequired
+  getItineraryById: PropTypes.func.isRequired,
+  setItinerary: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
@@ -57,5 +62,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { getItineraryById }
+  { getItineraryById, setItinerary }
 )(withRouter(SingleItinerary));

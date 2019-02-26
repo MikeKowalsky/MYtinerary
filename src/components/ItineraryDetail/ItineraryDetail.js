@@ -71,7 +71,7 @@ class ItineraryDetails extends Component {
         {this.props.multi && (
           <React.Fragment>
             <div className="section-title">
-              <Link to="/iterinaryDetails">
+              <Link to={`/iterinaryDetails/${this.props.itinerary._id}`}>
                 <p className="extra-size">Click here for more details!</p>
               </Link>
             </div>

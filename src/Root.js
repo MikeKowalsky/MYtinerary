@@ -47,7 +47,7 @@ class Root extends Component {
             <Route exact path="/" component={App} />
             <Route path="/cities" component={Cities} />
             <Route path="/city/:cityName" component={Itineraries} />
-            <Route path="/iterinaryDetails" component={SingleItinerary} />
+            <Route path="/iterinaryDetails/:id" component={SingleItinerary} />
             <Route path="/newIterinary" component={NewItinerary} />
             <Route path="/login" component={Login} />
             <Route path="/signup" component={SignUp} />

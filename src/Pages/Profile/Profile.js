@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 import { getUserDetails } from "../../actions/userActions";
 import isEmpty from "../../validation/is-empty";
 
@@ -36,7 +37,9 @@ class Profile extends Component {
                 <p>Favorite Itineraries:</p>
                 {details.favoriteItis.map(iti => (
                   <div key={iti._id} className="profile-iti-wrapper">
-                    <p> -> {iti.name}</p>
+                    <Link to={`/iterinaryDetails/${iti.itineraryId}`}>
+                      <p> -> {iti.name}</p>
+                    </Link>
                     <p> {cities.find(city => city._id === iti.cityId).name}</p>
                     <p>({iti.itineraryId})</p>
                   </div>
