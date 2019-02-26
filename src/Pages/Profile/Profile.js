@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { getUserDetails } from "../../actions/userActions";
 import isEmpty from "../../validation/is-empty";
 
 import Header from "../../components/Header/Header";
+import FavoriteItinerary from "./FavoriteItinerary";
 import "./Profile.css";
 
 class Profile extends Component {
@@ -33,18 +34,7 @@ class Profile extends Component {
                 <p>E-mail: {details.email}</p>
                 <p>Join date: {details.date}</p>
               </div>
-              <div>
-                <p>Favorite Itineraries:</p>
-                {details.favoriteItis.map(iti => (
-                  <div key={iti._id} className="profile-iti-wrapper">
-                    <Link to={`/iterinaryDetails/${iti.itineraryId}`}>
-                      <p> -> {iti.name}</p>
-                    </Link>
-                    <p> {cities.find(city => city._id === iti.cityId).name}</p>
-                    <p>({iti.itineraryId})</p>
-                  </div>
-                ))}
-              </div>
+              <FavoriteItinerary details={details} cities={cities} />
             </React.Fragment>
           )}
         </div>
